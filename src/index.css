@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Roboto', 'Railway', 'sans-serif';
+  font-family: 'Railway', 'Roboto', 'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
