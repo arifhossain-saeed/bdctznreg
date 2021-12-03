@@ -204,8 +204,7 @@ const CitizenFormPermanent = () => {
                                             handleAction={updatePostCode}/>
                         </Box>
                         <Box sx={{width: "22%"}}>
-                            <SelectInputField txtLbl="Religion" txtLblBng="থানা" dataList={["Islam", "Christianity"]}
-                                              handleAction={updatePs} fieldValue={ps}/>
+                            <SelectInputField txtLbl="Religion" txtLblBng="থানা" dataList={["Muslim", "Hindu", "Christian", "Buddist", "Jew", "Other"]} handleAction={updatePs} fieldValue={ps}/>
                         </Box>
                     </Box>
                     <Box sx={{display: "flex", justifyContent: "space-between"}}>
@@ -214,8 +213,7 @@ const CitizenFormPermanent = () => {
                                               handleAction={updatePs} fieldValue={ps}/>
                         </Box>
                         <Box sx={{width: "22%"}}>
-                            <SelectInputField txtLbl="Marital Status" txtLblBng="থানা"
-                                              dataList={["Never Married", "Married", "Divorced", "Widowed"]}
+                            <SelectInputField txtLbl="Marital Status" txtLblBng="থানা" dataList={["Never Married", "Married", "Divorced", "Widowed"]}
                                               handleAction={updatePs} fieldValue={ps}/>
                         </Box>
                         <Box sx={{width: "22%"}}>
