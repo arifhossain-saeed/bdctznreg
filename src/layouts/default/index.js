@@ -11,12 +11,15 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 
+import BDGovtLogo from "../../assets/images/bangladeshGovtLogo.png";
+import PoliceLogo from "../../assets/images/bangladeshPoliceLogo.png";
+
 
 const useStyles = makeStyles({
     app: {
         height: "100vh",
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "column"
     },
     toolbar: {
         display: "flex",
@@ -45,8 +48,9 @@ const useStyles = makeStyles({
     },
     pageTitle: {
         display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between"
+        flexDirection: "column",
+        justifyContent: "space-between",
+        textAlign: "center"
     },
     footer: {
         minWidth: "100hw",
@@ -54,10 +58,14 @@ const useStyles = makeStyles({
         display: "flex",
         justifyContent: "space-between",
         marginTop: "auto"
+    },
+    bengaliText: {
+        fontFamily: 'Bangla, sans-serif !important',
+        fontSize: '1.6em !important'
     }
 });
 
-const AppLayout = ({pageTitle = "", children, showLeftNav=false, showRightNav=false}) => {
+const AppLayout = ({pageTitle = "", pageTitleBangla="", children, showLeftNav=false, showRightNav=false}) => {
     const classes = useStyles();
 
     return (
@@ -65,18 +73,19 @@ const AppLayout = ({pageTitle = "", children, showLeftNav=false, showRightNav=fa
         <CssBaseline />
 
         <Container className={classes.container}>
-            <MainNavigation  className={classes.mainNavigation} />
+            {/*<MainNavigation  className={classes.mainNavigation} />*/}
 
             <Grid container className={classes.mainContent}>
                 {showLeftNav ? <Grid item sm={2}><LeftNavigation /></Grid> : <></>}
 
                 <Grid item sm={showLeftNav && showRightNav ? 8: showLeftNav || showRightNav ? 10 : 12}>
                     <header className={classes.header}>
-                        <img src="" alt="BD Logo"/>
+                        <img src={BDGovtLogo} alt="BD Logo" height="64px" />
                         <div className={classes.pageTitle}>
-                            <Typography variant="h6">BD Citizen Registry | { pageTitle }</Typography>
+                            <Typography variant="h5">BD Citizen Registry | { pageTitle }</Typography>
+                            <Typography variant="h6" className="banglaTextHeading">বাংলাদেশ নাগরিক নথি | { pageTitleBangla }</Typography>
                         </div>
-                        <img src="" alt="Police Logo"/>
+                        <img src={PoliceLogo} alt="Police Logo" height="64px" />
                     </header>
                     <hr/>
                     <br/>

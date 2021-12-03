@@ -8,6 +8,7 @@
     "@mui/icons-material": "^5.1.0",
     "@mui/material": "^5.1.0",
     "@mui/styles": "^5.1.1",
+    "@reduxjs/toolkit": "^1.6.2",
     "axios": "^0.24.0",
     "history": "^5.1.0",
     "moment": "^2.29.1",
@@ -17,7 +18,7 @@
     "react-file-base64": "^1.0.3",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^3.4.4",
     "react-swipeable-views": "^0.14.0",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.0"
