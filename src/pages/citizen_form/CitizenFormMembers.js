@@ -140,18 +140,18 @@ const CitizenFormMembers = () => {
                         <TextInputField lblTxt="Organization Email" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={postCode} handleAction={updatePostCode} inputType="email"/>
                     </Box>
                 </Box>
+                <Box sx={{display: "flex", justifyContent: "center"}}>
+                    <Button variant="contained" color="success" onClick={savePreviousRentals}>Add</Button>
+                </Box>
             </Stack>
 
 
-            <Box sx={{width: "100%", display: "flex", justifyContent: "space-between", marginTop: "30px"}}>
+            <Box sx={{width: "100%", display: "flex", justifyContent: "space-between", marginTop: "30px", borderTop: "1px solid black", paddingTop: "30px"}}>
                 <Box sx={{width: "31%", display: "flex"}}>
                     <Button variant="contained" color="info" onClick={goToPreviousForm}>Previous</Button>
-                    <Button variant="contained" color="error" onClick={cancelRecordCreation}
-                            sx={{ml: 2}}>Cancel</Button>
-
                 </Box>
                 <Box sx={{width: "31%", display: "flex", justifyContent: "center"}}>
-                    <Button variant="contained" color="success" onClick={savePreviousRentals}>Add</Button>
+                    <Button variant="contained" color="error" onClick={cancelRecordCreation} sx={{ml: 2}}>Cancel</Button>
                 </Box>
                 <Box sx={{width: "31%", display: "flex", justifyContent: "right"}}>
                     <Button variant="contained" color="info" onClick={goToNextForm}>Next</Button>

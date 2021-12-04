@@ -21,7 +21,7 @@ const AppRoutes = () =>  (
         <Route path="/ctzn_form_members" exact element={<CitizenFormMembers />} />
         <Route path="/ctzn_form_helps" exact element={<CitizenFormHelps />} />
         <Route path="/ctzn_form_photo" exact element={<CitizenFormPhoto />} />
-    <Route path="*" exact element={<Unavailable />} />
+        <Route path="*" exact element={<Unavailable />} />
     </Routes>
 );
 

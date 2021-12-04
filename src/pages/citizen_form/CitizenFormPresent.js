@@ -206,14 +206,14 @@ const CitizenFormPresent = () => {
                 <Box sx={{display: "flex", justifyContent: "space-between"}}>
                     <TextInputField lblTxt="Reason for leaving" lblTxtBng="পরিবর্তনের কারন" fieldValue={postCode} handleAction={updatePostCode} />
                 </Box>
-                <Box sx={{width: "100%", display:"flex", justifyContent: "space-between"}}>
-                    <Box sx={{width: "31%", display:"flex", justifyContent: "left"}}>
+                <Box sx={{display:"flex", justifyContent: "center"}}>
+                    <Button variant="contained" color="success" onClick={savePreviousRentals}>Save</Button>
+                </Box>
+                <Box sx={{width: "100%", display:"flex", justifyContent: "space-between", marginTop:"30px", borderTop: "1px solid black", paddingTop: "30px"}}>
+                    <Box sx={{display:"flex", justifyContent: "left"}}>
                         <Button variant="contained" color="error" onClick={cancelRecordCreation}>Cancel</Button>
                     </Box>
-                    <Box sx={{width: "31%", display:"flex", justifyContent: "center"}}>
-                        <Button variant="contained" color="success" onClick={savePreviousRentals}>Save</Button>
-                    </Box>
-                    <Box sx={{width: "31%", display:"flex", justifyContent: "right"}}>
+                    <Box sx={{display:"flex", justifyContent: "right"}}>
                         <Button variant="contained" color="info" onClick={goToNextForm}>Next</Button>
                     </Box>
                 </Box>
