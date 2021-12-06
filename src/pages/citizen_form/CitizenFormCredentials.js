@@ -90,8 +90,7 @@ const CitizenFormCredentials = () => {
         },
     ]
     return(
-    <AppLayout pageTitle="Citizen Form Page [Education Occupation]" pageTitleBangla="নাগরিক তথ্য সংগ্রহ [শিক্ষা পেশা]"
-               pageContent="Citizen Information Collection Form">
+    <AppLayout pageTitle="Citizen Form Page [Education Occupation]" pageTitleBangla="নাগরিক তথ্য সংগ্রহ [শিক্ষা পেশা]">
         <Box className="page-content">
             <Stack direction="column" spacing={3}>
                 <SectionTitle titleText="Highest Education"/>

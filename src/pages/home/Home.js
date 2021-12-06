@@ -200,13 +200,6 @@ function Home () {
                         </Stack>
                     </Box>
                 </Modal>
-
-                <Box sx={{width: 500, maxWidth: "100%", margin: "3em auto 1.5em"}}>
-                    <Stack spacing={2} direction="column">
-                        <Typography variant="p" sx={{color: "#EE7373"}}>* For administrative users only | শুধুমাত্র প্রশাসনিক কর্মকর্তাদের জন্য</Typography>
-                        <Button variant="contained" sx={{ paddingY:"1em", paddingX: ".6em", backgroundColor: "#97B4FF", fontWeight: 300}}>{"Create User | ইউজার তৈরি করুন"}</Button>
-                    </Stack>
-                </Box>
             </Box>
         </AppLayout>
     );

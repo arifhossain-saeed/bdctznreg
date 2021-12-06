@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import LabelAndData from "../../components/page_parts/LabelAndData";
-import AddressPresenter from "../../components/page_parts/AddressPresenter";
 import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
 
@@ -14,11 +13,12 @@ import SectionTitle from "../../components/page_parts/SectionTitle";
 import TableAlterateColor from "../../components/page_parts/TableAlternateColor";
 import TableAlternateColor from "../../components/page_parts/TableAlternateColor";
 import Button from "@mui/material/Button";
+import AddressPresenter from "../../components/page_parts/AddressPresenter";
 
 const useStyles = makeStyles({
 })
 
-const CitizenDetail = () => {
+const UserDetail = () => {
     const classes = useStyles();
 
     const basicInfo = [
@@ -146,20 +146,19 @@ const CitizenDetail = () => {
     }
 
     return (
-        <AppLayout pageTitle="Citizen Detail Page" pageTitleBangla="নাগরিক তথ্য বিবরনী"
-                   pageContent="Details about a citizen">
+        <AppLayout pageTitle="User Detail" pageTitleBangla="নাগরিক তথ্য বিবরনী" pageContent="Details about a citizen">
             <Box maxWidth="100%" className="page-content">
                 <Stack spacing={3} direction="column">
                     <Box>
-                        <SectionTitle titleText="Bio" />
+                        <SectionTitle titleText="User Detail" />
                         <Grid container sx={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
                             <Grid item sm={3}>
                                 <img src={CtznPicture} alt="Citizen Picture" style={{borderRadius: "10px", padding: "5px", backgroundColor: "#DDDDDD"}}/>
                             </Grid>
                             <Grid item sm={9}>
                                 { basicInfo.length ? basicInfo.map(lnd =>
-                                        <LabelAndData questionLabel={lnd.label} answerData={lnd.data} />
-                                    ) : ""}
+                                    <LabelAndData questionLabel={lnd.label} answerData={lnd.data} />
+                                ) : ""}
 
                                 {contactInfo.length ? contactInfo.map(lnd => {
                                     if(!lnd.label.includes("Address")){
@@ -169,72 +168,13 @@ const CitizenDetail = () => {
                             </Grid>
                         </Grid>
                     </Box>
-
-                    <Box>
-                        <SectionTitle titleText="Contact" />
-                        <Stack spacing={3} direction="column">
-                            <AddressPresenter addressLabel="Permanent Address" addressObject={addresses.permanent} />
-                            <AddressPresenter addressLabel="Present Address" addressObject={addresses.present} />
-                            <AddressPresenter addressLabel="Here Since" addressData={addresses.present.hereSince} />
-                        </Stack>
-                    </Box>
-
-                    <Box>
-                        <SectionTitle titleText="Land Owner" />
-                        <Stack spacing={3} direction="column">
-                            <Grid container>
-                                {Object.keys(landOwner).map((key, index) => {
-                                    return (
-                                        <Grid item sm={6}>
-                                            <LabelAndData questionLabel={key.toString()} answerData={landOwner[key]} />
-                                        </Grid>
-                                    )
-                                })}
-                            </Grid>
-                        </Stack>
-                    </Box>
-                    <Box>
-                        <SectionTitle titleText="Family or Mess Members" />
-                        <Stack spacing={3} direction="column">
-                            <Grid container>
-                                <TableAlterateColor tableData={members} />
-                            </Grid>
-                        </Stack>
-                    </Box>
-                    <Box>
-                        <SectionTitle titleText="Helping Hands" />
-                        <Stack spacing={3} direction="column">
-                            <Grid container>
-                                <TableAlterateColor tableData={helpingHands} />
-                            </Grid>
-                        </Stack>
-                    </Box>
-                    <Box>
-                        <SectionTitle titleText="Previous Rental Addresses" />
-                        <Stack spacing={3} direction="column">
-                            <Grid container>
-                                <TableAlternateColor tableData={previousRentals} />
-                            </Grid>
-                        </Stack>
-                    </Box>
-                    <Box>
-                        <SectionTitle titleText="Verification Information" />
-                        <Stack spacing={3} direction="column">
-                            <Grid container>
-                                <Grid item sm={6}>
-                                    <LabelAndData questionLabel="Verified Property Owner" answerData="Yes" />
-                                </Grid>
-                                <Grid item sm={6}>
-                                    <LabelAndData questionLabel="Field Officer & Badge No" answerData="S. I. Imran Khan - 5968041327" />
-                                </Grid>
-                            </Grid>
-                        </Stack>
-                    </Box>
                     <Box sx={{ borderTop: "1px solid black"}}>
                         <Grid container sx={{ marginTop: "20px"}}>
-                            <Grid item sm={4}>{""}</Grid>
+                            <Grid item sm={4} align="left">
+                                <Button variant="contained" color="info" onClick={logOut}>Clear</Button>
+                            </Grid>
                             <Grid item sm={4} align="center">
-                                <Button variant="contained" color="error" onClick={logOut}>Log Out</Button>
+                                <Button variant="contained" color="error" onClick={logOut}>Cancel</Button>
                             </Grid>
                             <Grid item sm={4} align="right">
                                 <Button variant="contained" color="success" onClick={editInformation}>Edit Information</Button>
@@ -247,4 +187,4 @@ const CitizenDetail = () => {
     );
 }
 
-export default CitizenDetail;
+export default UserDetail;
