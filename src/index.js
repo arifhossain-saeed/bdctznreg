@@ -1,5 +1,5 @@
 // Mandatory Imports
-import React from 'react';
+import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as AppRouter} from "react-router-dom";
 import {Provider} from "react-redux";
@@ -14,7 +14,6 @@ import AppRoutes from "./routes";
 
 // Create Redux Store
 const store = createStore(combineReducers({loginReducer}), composeWithDevTools());
-
 
 // Code Block
 ReactDOM.render(

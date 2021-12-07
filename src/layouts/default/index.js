@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { CssBaseline } from "@mui/material";
 import Container from "@mui/material/Container";
 import { makeStyles } from '@mui/styles'
@@ -14,6 +14,20 @@ import Grid from "@mui/material/Grid";
 import BDGovtLogo from "../../assets/images/bangladeshGovtLogo.png";
 import PoliceLogo from "../../assets/images/bangladeshPoliceLogo.png";
 import Box from "@mui/material/Box";
+
+import {useLocation} from "react-router-dom";
+
+
+
+const ScrollToTop = (props) => {
+    const location = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
+
+    return <>{props.children}</>
+};
+
 
 
 const useStyles = makeStyles({
@@ -67,44 +81,46 @@ const AppLayout = ({pageTitle = "", pageTitleBangla="", children, showLeftNav=fa
     const classes = useStyles();
 
     return (
-    <div className={classes.app}>
-        <CssBaseline />
+    <ScrollToTop>
+        <div className={classes.app}>
+            <CssBaseline />
 
-        <Container container maxWidth="lg">
-            {/*<MainNavigation  className={classes.mainNavigation} />*/}
+            <Container container maxWidth="lg">
+                {/*<MainNavigation  className={classes.mainNavigation} />*/}
 
-            <Box className={classes.mainContent}>
-                {showLeftNav ? <Grid item sm={2}><LeftNavigation /></Grid> : <></>}
+                <Box className={classes.mainContent}>
+                    {showLeftNav ? <Grid item sm={2}><LeftNavigation /></Grid> : <></>}
 
-                <Box sm={showLeftNav && showRightNav ? 8: showLeftNav || showRightNav ? 10 : 12} rowSpacing={3}>
-                    <header className={classes.header}>
-                        <img src={BDGovtLogo} alt="BD Logo" height="64px" />
-                        <div className={classes.pageTitle}>
-                            <Typography variant="h5">BD Citizen Registry | { pageTitle }</Typography>
-                            <Typography variant="h6" className="banglaTextHeading">বাংলাদেশ নাগরিক নথি | { pageTitleBangla }</Typography>
-                        </div>
-                        <img src={PoliceLogo} alt="Police Logo" height="64px" />
-                    </header>
-                    <hr/>
-                    <br/>
+                    <Box sm={showLeftNav && showRightNav ? 8: showLeftNav || showRightNav ? 10 : 12} rowSpacing={3}>
+                        <header className={classes.header}>
+                            <img src={BDGovtLogo} alt="BD Logo" height="64px" />
+                            <div className={classes.pageTitle}>
+                                <Typography variant="h5">BD Citizen Registry | { pageTitle }</Typography>
+                                <Typography variant="h6" className="banglaTextHeading">বাংলাদেশ নাগরিক নথি | { pageTitleBangla }</Typography>
+                            </div>
+                            <img src={PoliceLogo} alt="Police Logo" height="64px" />
+                        </header>
+                        <hr/>
+                        <br/>
 
-                    <Box sx={{margin: "20px 0"}}>
-                        {children}
+                        <Box sx={{margin: "20px 0"}}>
+                            {children}
+                        </Box>
+
+                        <br/>
+                        <hr/>
+                        <footer className={classes.footer}>
+                            <Typography variant="p">Serving the people is our first objective</Typography>
+                            <Typography variant="p">Peoples Republic of Bangladesh</Typography>
+                        </footer>
+
                     </Box>
 
-                    <br/>
-                    <hr/>
-                    <footer className={classes.footer}>
-                        <Typography variant="p">Serving the people is our first objective</Typography>
-                        <Typography variant="p">Peoples Republic of Bangladesh</Typography>
-                    </footer>
-
+                    {showRightNav ? <Grid item sm={2}><RightNavigation /></Grid> : <></>}
                 </Box>
-
-                {showRightNav ? <Grid item sm={2}><RightNavigation /></Grid> : <></>}
-            </Box>
-        </Container>
-    </div>
+            </Container>
+        </div>
+    </ScrollToTop>
 )};
 
 export default AppLayout;
