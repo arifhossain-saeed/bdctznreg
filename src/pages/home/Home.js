@@ -16,6 +16,8 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Modal from "@mui/material/Modal";
 import useToggleState from "../../hooks/useToggleState";
+import TextInputField from "../../components/form_parts/TextInputField";
+import Grid from "@mui/material/Grid";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -126,7 +128,7 @@ function Home () {
 
     return(
         <AppLayout pageTitle="Home" pageTitleBangla="কাচারীঘর" showRightNav={false} showLeftNav={false}>
-            <Box sx={{ backgroundColor: 'background.paper', margin: "20px 0"}}>
+            <Grid sx={{width: "100%"}}>
                 <AppBar position="static">
                     <Tabs
                         value={value}
@@ -147,33 +149,33 @@ function Home () {
                     onChangeIndex={handleChangeIndex}
                 >
                     <TabPanel value={value} index={0} dir={theme.direction} className={classes.tabPanelBg}>
-                        <Box sx={{width: 500, maxWidth: "100%", margin: "auto"}}>
+                        <Grid xs={12} sm={6} sx={{margin: "auto"}}>
                             <Stack spacing={2} direction="column">
-                                <TextField fullWidth label="National ID | জাতীয় পরিচয়" id="ctzn_nid" sx={{background: "white", outline: "none", borderRadius: "5px"}}/>
-                                <TextField fullWidth label="Phone No | ফোন নম্বর" id="ctzn_phone" sx={{background: "white", outline: "none", borderRadius: "5px"}} />
-                                <Button variant="contained" sx={{ paddingY:"1em", paddingX: ".6em", backgroundColor: "#97B4FF", fontWeight: 300}} onClick={openOtpModal}>{"Find or Create Record | তথ্য খুজি অথবা তৈরি করি"}</Button>
+                                <TextInputField fullWidth lblTxt="National ID" lblTxtBng="জাতীয় পরিচয়" id="ctzn_nid" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}}/>
+                                <TextInputField fullWidth lblTxt="Phone No" lblTxtBng="ফোন নম্বর" id="ctzn_phone" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}} />
+                                <Button variant="contained" sx={{ paddingY:"1em", paddingX: ".6em", backgroundColor: "#97B4FF", fontWeight: 300}} onClick={openOtpModal}>Find or Create Record | &nbsp;<span className="banglaText"> তথ্য খুজি অথবা তৈরি করি</span></Button>
                             </Stack>
-                        </Box>
+                        </Grid>
                     </TabPanel>
 
                     <TabPanel value={value} index={1} dir={theme.direction} className={classes.tabPanelBg}>
-                        <Box sx={{width: 500, maxWidth: "100%", margin: "auto"}}>
+                        <Grid xs={12} sm={6} sx={{margin: "auto"}}>
                             <Stack spacing={2} direction="column">
-                                <TextField fullWidth label="National ID | জাতীয় পরিচয়" id="owner_nid" sx={{background: "white", outline: "none", borderRadius: "5px"}}/>
-                                <TextField fullWidth label="Phone No | ফোন নম্বর" id="owner_phone" sx={{background: "white", outline: "none", borderRadius: "5px"}} />
-                                <Button variant="contained" sx={{ paddingY:"1em", paddingX: ".6em", backgroundColor: "#97B4FF", fontWeight: 300}} onClick={openOtpModal}>{"Log In | লগ ইন করুন"}</Button>
+                                <TextInputField fullWidth lblTxt="National ID" lblTxtBng="জাতীয় পরিচয়" id="owner_nid" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}}/>
+                                <TextInputField fullWidth lblTxt="Phone No" lblTxtBng="ফোন নম্বর" id="owner_phone" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}} />
+                                <Button variant="contained" sx={{ paddingY:"1em", paddingX: ".6em", backgroundColor: "#97B4FF", fontWeight: 300}} onClick={openOtpModal}>Find or Create Record | &nbsp;<span className="banglaText"> লগ ইন করুন</span></Button>
                             </Stack>
-                        </Box>
+                        </Grid>
                     </TabPanel>
 
                     <TabPanel value={value} index={2} dir={theme.direction} className={classes.tabPanelBg}>
-                        <Box sx={{width: 500, maxWidth: "100%", margin: "auto"}}>
+                        <Grid xs={12} sm={6} sx={{margin: "auto"}}>
                             <Stack spacing={2} direction="column">
-                                <TextField fullWidth label="Badge or ID | ব্যাজ বা আইডি নং" id="admin_badge" sx={{background: "white", outline: "none", borderRadius: "5px"}}/>
-                                <TextField fullWidth label="Password | পাসওয়ার্ড" id="admin_password" sx={{background: "white", outline: "none", borderRadius: "5px"}} />
-                                <Button variant="contained" sx={{ paddingY:"1em", paddingX: ".6em", backgroundColor: "#97B4FF", fontWeight: 300}} onClick={openOtpModal}>{"Log In | লগ ইন করুন"}</Button>
+                                <TextInputField fullWidth lblTxt="Badge or ID" lblTxtBng="ব্যাজ বা আইডি নং" id="admin_badge" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}}/>
+                                <TextInputField fullWidth lblTxt="Password" lblTxtBng="পাসওয়ার্ড" id="admin_password" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}} inputType="password" />
+                                <Button variant="contained" sx={{ paddingY:"1em", paddingX: ".6em", backgroundColor: "#97B4FF", fontWeight: 300}} onClick={openOtpModal}>Find or Create Record | &nbsp;<span className="banglaText"> লগ ইন করুন</span></Button>
                             </Stack>
-                        </Box>
+                        </Grid>
                     </TabPanel>
                 </SwipeableViews>
 
@@ -200,7 +202,7 @@ function Home () {
                         </Stack>
                     </Box>
                 </Modal>
-            </Box>
+            </Grid>
         </AppLayout>
     );
 }

@@ -12,6 +12,7 @@ import useInputState from "../../hooks/useInputState";
 import TableAlternateColorAct from "../../components/page_parts/TableAlternateColorAct";
 import {useNavigate} from "react-router-dom";
 import Modal from "@mui/material/Modal";
+import Grid from "@mui/material/Grid";
 
 
 const helpingHands =  [
@@ -32,43 +33,46 @@ const UserList = () => {
             pageTitle="Citizen Records"
             pageTitleBangla=""
         >
-            <Box className="page-content">
-                <Stack direction="column" spacing={3}>
-                    <SectionTitle titleText="User Records" />
-                    <Box sx={{display: "flex", justifyContent: "space-between", marginTop: "-15px !important"}}>
-                        <Box sx={{width: "75%"}}>
-                            <TextInputField lblTxt="Search" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={searchText} handleAction={updateSearchText}/>
-                        </Box>
-                        <Box sx={{width: "22%"}}>
+            <Grid container rowSpacing={3} className="page-content">
+
+                <SectionTitle titleText="User List" titleTextBng="" textStyle={{marginTop: "-2.2em"}} />
+                <Grid item container rowSpacing={2} justify="space-between">
+                    <Grid item container justify="space-between" spacing={3} rowSpacing={2}>
+                        <Grid item sm={9}>
+                            <TextInputField lblTxt="Search" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={searchText} handleAction={updateSearchText} inpStyle={{marginTop: "-.8em"}}/>
+                        </Grid>
+                        <Grid item sm={3}>
                             <Button variant="contained" color="success" onClick={updateSearchText} fullWidth>Search</Button>
-                        </Box>
-                    </Box>
+                        </Grid>
+                    </Grid>
+                </Grid>
 
-                    {
-                        searchText.length > 0 ? (
-                            <Box sx={{display: "flex"}}>
-                                <Box sx={{width: "20%"}}>
-                                    <Typography variant="p">Showing result(s) for: </Typography>
-                                </Box>
-                                <Box>
-                                    <Typography variant="p"><strong>{searchText}</strong></Typography>
-                                </Box>
-                            </Box>
-                        ) : ""
-                    }
-                    <hr/>
-
-
-                    <Box sx={{display: "flex", justifyContent: "space-between", marginTop: "30px !important"}}>
-                        <TableAlternateColorAct tableData={helpingHands} handleVisibilityAction={handleVisibility} />
-                    </Box>
-                </Stack>
+                {
+                    searchText.length > 0 ? (
+                        <Grid item container spacing={3}>
+                            <Grid item sm={3}>
+                                <Typography variant="p">Showing result(s) for: </Typography>
+                            </Grid>
+                            <Grid item sm={9}>
+                                <Typography variant="p"><strong>{searchText}</strong></Typography>
+                            </Grid>
+                        </Grid>
+                    ) : ""
+                }
 
 
-                <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-                    <Button variant="contained" sx={{ backgroundColor: "#97B4FF", fontWeight: 300, margin: "1.5em auto"}}>{"Create User | ইউজার তৈরি করুন"}</Button>
-                </Box>
-            </Box>
+                <Grid item container justify="space-between" sx={{marginTop: "30px !important"}}>
+                    <TableAlternateColorAct tableData={helpingHands} handleVisibilityAction={handleVisibility} />
+                </Grid>
+
+
+                <Grid item container sx={{margin: "30px 0"}}>
+                    <Box sx={{border: "1px solid black", width: "100%"}}></Box>
+                </Grid>
+                <Grid item container sx={{justifyContent: "center", alignItems: "center"}}>
+                    <Button variant="contained" sx={{ backgroundColor: "#97B4FF", fontWeight: 300, margin: "0 auto"}}>{"Create User | ইউজার তৈরি করুন"}</Button>
+                </Grid>
+            </Grid>
         </AppLayout>
     );
 }

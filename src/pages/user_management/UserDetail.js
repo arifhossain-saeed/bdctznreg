@@ -147,42 +147,43 @@ const UserDetail = () => {
 
     return (
         <AppLayout pageTitle="User Detail" pageTitleBangla="নাগরিক তথ্য বিবরনী" pageContent="Details about a citizen">
-            <Box maxWidth="100%" className="page-content">
-                <Stack spacing={3} direction="column">
-                    <Box>
-                        <SectionTitle titleText="User Detail" />
-                        <Grid container sx={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
-                            <Grid item sm={3}>
-                                <img src={CtznPicture} alt="Citizen Picture" style={{borderRadius: "10px", padding: "5px", backgroundColor: "#DDDDDD"}}/>
-                            </Grid>
-                            <Grid item sm={9}>
-                                { basicInfo.length ? basicInfo.map(lnd =>
-                                    <LabelAndData questionLabel={lnd.label} answerData={lnd.data} />
-                                ) : ""}
+            <Grid container rowSpacing={3} className="page-content">
+                <Grid item container>
+                    <SectionTitle titleText="User Detail" titleTextBng="" />
+                    <Grid item container justify="space-between">
+                        <Grid item xs={12} sm={12} md={3} sx={{justifyContent: "center", alignItems: "center"}}>
+                            <img src={CtznPicture} alt="Citizen Picture" style={{display:"flex", borderRadius: "10px", padding: "5px", backgroundColor: "#DDDDDD"}}/>
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={9}>
+                            { basicInfo.length ? basicInfo.map(lnd =>
+                                <LabelAndData questionLabel={lnd.label} answerData={lnd.data} lblStyle={{textAlign:"right"}} />
+                            ) : ""}
 
-                                {contactInfo.length ? contactInfo.map(lnd => {
-                                    if(!lnd.label.includes("Address")){
-                                        return <LabelAndData questionLabel={lnd.label} answerData={lnd.data}/>
-                                    }
-                                }) : ""}
-                            </Grid>
+                            {contactInfo.length ? contactInfo.map(lnd => {
+                                if(!lnd.label.includes("Address")){
+                                    return <LabelAndData questionLabel={lnd.label} answerData={lnd.data}  lblStyle={{textAlign:"right"}}/>
+                                }
+                            }) : ""}
                         </Grid>
-                    </Box>
-                    <Box sx={{ borderTop: "1px solid black"}}>
-                        <Grid container sx={{ marginTop: "20px"}}>
-                            <Grid item sm={4} align="left">
-                                <Button variant="contained" color="info" onClick={logOut}>Clear</Button>
-                            </Grid>
-                            <Grid item sm={4} align="center">
-                                <Button variant="contained" color="error" onClick={logOut}>Cancel</Button>
-                            </Grid>
-                            <Grid item sm={4} align="right">
-                                <Button variant="contained" color="success" onClick={editInformation}>Edit Information</Button>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </Stack>
-            </Box>
+                    </Grid>
+                </Grid>
+
+                <Grid item container sx={{margin: "30px 0"}}>
+                    <Box sx={{border: "1px solid black", width: "100%"}}></Box>
+                </Grid>
+
+                <Grid item container rowSpacing={2} spacing={2} justify="space-between">
+                    <Grid item xs={12} sm={4}>
+                        <Button variant="contained" color="error" onClick={logOut} fullWidth>Cancel</Button>
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                        <Button variant="contained" color="info" onClick={logOut} fullWidth>Clear</Button>
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                        <Button variant="contained" color="success" onClick={editInformation} fullWidth>Edit Information</Button>
+                    </Grid>
+                </Grid>
+            </Grid>
         </AppLayout>
     );
 }

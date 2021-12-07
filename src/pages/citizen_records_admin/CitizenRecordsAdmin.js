@@ -11,6 +11,7 @@ import TableAlternateColorAct from "../../components/page_parts/TableAlternateCo
 import {useNavigate} from "react-router-dom";
 import SelectInputField from "../../components/form_parts/SelectInputField";
 import useToggleState from "../../hooks/useToggleState";
+import Grid from "@mui/material/Grid";
 
 
 const helpingHands =  [
@@ -63,75 +64,68 @@ const CitizenRecordsAdmin = () => {
             pageTitle="Citizen Records"
             pageTitleBangla=""
         >
-            <Box className="page-content">
-                <Stack direction="column" spacing={3}>
-                    <SectionTitle titleText="Citizen Records" />
-                    <Box sx={{display: "flex", justifyContent: "space-between", marginTop: "-15px !important"}}>
-                        <Box sx={{width: "75%"}}>
-                            <TextInputField lblTxt="Search" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={searchText} handleAction={updateSearchText}/>
-                        </Box>
-                        <Box sx={{width: "22%"}}>
-                            <Button variant="contained" color="success" onClick={updateSearchText} fullWidth>Search</Button>
-                        </Box>
-                        {
-                            searchText.length > 0 ? (
-                                <Box sx={{display: "flex"}}>
-                                    <Box sx={{width: "20%"}}>
-                                        <Typography variant="p">Showing result(s) for: </Typography>
-                                    </Box>
-                                    <Box>
-                                        <Typography variant="p"><strong>{searchText}</strong></Typography>
-                                    </Box>
-                                </Box>
-                            ) : ""
-                        }
-                    </Box>
+            <Grid container rowSpacing={3} className="page-content">
+                <SectionTitle titleText="Citizen Records" textStyle={{marginTop: "-2.2em"}}/>
+                <Grid item container rowSpacing={2} spacing={3} justify="space-between">
+                    <Grid item md={9}>
+                        <TextInputField lblTxt="Search" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={searchText} handleAction={updateSearchText}/>
+                    </Grid>
+                    <Grid item md={3}>
+                        <Button variant="contained" color="success" onClick={updateSearchText} fullWidth>Search</Button>
+                    </Grid>
+                    {
+                        searchText.length > 0 ? (
+                            <Grid item container>
+                                <Grid item md={3}>
+                                    <Typography variant="p">Showing result(s) for: </Typography>
+                                </Grid>
+                                <Grid item md={9}>
+                                    <Typography variant="p"><strong>{searchText}</strong></Typography>
+                                </Grid>
+                            </Grid>
+                        ) : ""
+                    }
+                </Grid>
 
-                    <hr/>
+                <Grid item container rowSpacing={2} spacing={3} justify="space-between">
+                    <Grid item md={3}>
+                        <SelectInputField txtLbl="Division" txtLblBng="বিভাগ" dataList={names} handleAction={updateDiv}  fieldValue={division} />
+                    </Grid>
+                    <Grid item md={3}>
+                        <SelectInputField txtLbl="District" txtLblBng="জেলা" dataList={names} handleAction={updateDist}  fieldValue={district} />
+                    </Grid>
+                    <Grid item md={3}>
+                        <SelectInputField txtLbl="Sub-District" txtLblBng="উপজেলা" dataList={names} handleAction={updateSubDist}  fieldValue={subDist} />
+                    </Grid>
+                    <Grid item md={3}>
+                        <SelectInputField txtLbl="Police Station" txtLblBng="থানা" dataList={names} handleAction={updatePs}  fieldValue={ps} />
+                    </Grid>
+                </Grid>
 
-                    <Box sx={{display: "flex", justifyContent: "space-between", marginTop: "30px !important"}}>
-                        <Box sx={{width: "22%"}}>
-                            <SelectInputField txtLbl="Division" txtLblBng="বিভাগ" dataList={names} handleAction={updateDiv}  fieldValue={division} />
-                        </Box>
-                        <Box sx={{width: "22%"}}>
-                            <SelectInputField txtLbl="District" txtLblBng="জেলা" dataList={names} handleAction={updateDist}  fieldValue={district} />
-                        </Box>
-                        <Box sx={{width: "22%"}}>
-                            <SelectInputField txtLbl="Sub-District" txtLblBng="উপজেলা" dataList={names} handleAction={updateSubDist}  fieldValue={subDist} />
-                        </Box>
-                        <Box sx={{width: "22%"}}>
-                            <SelectInputField txtLbl="Police Station" txtLblBng="থানা" dataList={names} handleAction={updatePs}  fieldValue={ps} />
-                        </Box>
-                    </Box>
+                <Grid item container spacing={3} justify="space-between">
+                    <Grid item md={3}>
+                        <TextInputField lblTxt="Area" lblTxtBng="সেকশন/সেক্টর" fieldValue={postCode} handleAction={updatePostCode} />
+                    </Grid>
+                    <Grid item md={3}>
+                        <TextInputField lblTxt="Keyword" lblTxtBng="ব্লক" fieldValue={postCode} handleAction={updatePostCode} />
+                    </Grid>
+                    <Grid item container md={3} justify="space-between">
+                        <Grid sx={{width: "45%"}}>
+                            <TextInputField lblTxt="Age From" lblTxtBng="বাড়ি" fieldValue={postCode} handleAction={updatePostCode} inputType="number" />
+                        </Grid>
+                        <Grid sx={{width: "45%"}}>
+                            <TextInputField lblTxt="Age To" lblTxtBng="ফ্ল্যাট/এপার্টমেন্ট" fieldValue={postCode} handleAction={updatePostCode} inputType="number" />
+                        </Grid>
+                    </Grid>
+                    <Grid item md={3}>
+                        <Button variant="contained" color="success" onClick={filterData} fullWidth>Filter</Button>
+                    </Grid>
+                </Grid>
 
-                    <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                        <Box sx={{width: "22%"}}>
-                            <TextInputField lblTxt="Area" lblTxtBng="সেকশন/সেক্টর" fieldValue={postCode} handleAction={updatePostCode} />
-                        </Box>
-                        <Box sx={{width: "22%"}}>
-                            <TextInputField lblTxt="Keyword" lblTxtBng="ব্লক" fieldValue={postCode} handleAction={updatePostCode} />
-                        </Box>
-                        <Box sx={{width: "22%", display: "flex", justifyContent: "space-between"}}>
-                            <Box sx={{width: "45%"}}>
-                                <TextInputField lblTxt="Age From" lblTxtBng="বাড়ি" fieldValue={postCode} handleAction={updatePostCode} inputType="number" />
-                            </Box>
-                            <Box sx={{width: "45%"}}>
-                                <TextInputField lblTxt="Age To" lblTxtBng="ফ্ল্যাট/এপার্টমেন্ট" fieldValue={postCode} handleAction={updatePostCode} inputType="number" />
-                            </Box>
-                        </Box>
-                        <Box sx={{width: "22%"}}>
-                            <Button variant="contained" color="success" onClick={filterData} fullWidth>Filter</Button>
-                        </Box>
-                    </Box>
-
-                    <hr/>
-
-
-                    <Box sx={{display: "flex", justifyContent: "space-between", marginTop: "30px !important"}}>
-                        <TableAlternateColorAct tableData={helpingHands} handleVisibilityAction={handleVisibility} />
-                    </Box>
-                </Stack>
-            </Box>
+                <Grid item container justify="space-between">
+                    <TableAlternateColorAct tableData={helpingHands} handleVisibilityAction={handleVisibility} />
+                </Grid>
+            </Grid>
         </AppLayout>
     );
 }

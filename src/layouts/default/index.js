@@ -13,6 +13,7 @@ import Grid from "@mui/material/Grid";
 
 import BDGovtLogo from "../../assets/images/bangladeshGovtLogo.png";
 import PoliceLogo from "../../assets/images/bangladeshPoliceLogo.png";
+import Box from "@mui/material/Box";
 
 
 const useStyles = makeStyles({
@@ -36,9 +37,6 @@ const useStyles = makeStyles({
         justifyContent: "space-between"
     },
     mainContent: {
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between"
     },
     header: {
         display: "flex",
@@ -72,13 +70,13 @@ const AppLayout = ({pageTitle = "", pageTitleBangla="", children, showLeftNav=fa
     <div className={classes.app}>
         <CssBaseline />
 
-        <Container className={classes.container}>
+        <Container container maxWidth="lg">
             {/*<MainNavigation  className={classes.mainNavigation} />*/}
 
-            <Grid container className={classes.mainContent}>
+            <Box className={classes.mainContent}>
                 {showLeftNav ? <Grid item sm={2}><LeftNavigation /></Grid> : <></>}
 
-                <Grid item sm={showLeftNav && showRightNav ? 8: showLeftNav || showRightNav ? 10 : 12}>
+                <Box sm={showLeftNav && showRightNav ? 8: showLeftNav || showRightNav ? 10 : 12} rowSpacing={3}>
                     <header className={classes.header}>
                         <img src={BDGovtLogo} alt="BD Logo" height="64px" />
                         <div className={classes.pageTitle}>
@@ -90,7 +88,9 @@ const AppLayout = ({pageTitle = "", pageTitleBangla="", children, showLeftNav=fa
                     <hr/>
                     <br/>
 
-                    {children}
+                    <Box sx={{margin: "20px 0"}}>
+                        {children}
+                    </Box>
 
                     <br/>
                     <hr/>
@@ -99,10 +99,10 @@ const AppLayout = ({pageTitle = "", pageTitleBangla="", children, showLeftNav=fa
                         <Typography variant="p">Peoples Republic of Bangladesh</Typography>
                     </footer>
 
-                </Grid>
+                </Box>
 
                 {showRightNav ? <Grid item sm={2}><RightNavigation /></Grid> : <></>}
-            </Grid>
+            </Box>
         </Container>
     </div>
 )};

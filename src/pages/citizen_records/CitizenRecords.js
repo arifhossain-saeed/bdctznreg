@@ -11,6 +11,7 @@ import Typography from "@mui/material/Typography";
 import useInputState from "../../hooks/useInputState";
 import TableAlternateColorAct from "../../components/page_parts/TableAlternateColorAct";
 import {useNavigate} from "react-router-dom";
+import Grid from "@mui/material/Grid";
 
 
 const helpingHands =  [
@@ -31,38 +32,37 @@ const CitizenRecords = () => {
             pageTitle="Citizen Records"
             pageTitleBangla=""
         >
-            <Box className="page-content">
-                <Stack direction="column" spacing={3}>
-                    <SectionTitle titleText="Citizen Records" />
-                    <Box sx={{display: "flex", justifyContent: "space-between", marginTop: "-15px !important"}}>
-                        <Box sx={{width: "75%"}}>
-                            <TextInputField lblTxt="Search" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={searchText} handleAction={updateSearchText}/>
-                        </Box>
-                        <Box sx={{width: "22%"}}>
+            <Grid container rowSpacing={3} className="page-content">
+                <SectionTitle titleText="Citizen Records" textStyle={{marginTop: "-2.2em"}} />
+                <Grid container rowSpacing={3}>
+                    <Grid item container spacing={3} justify="space-between">
+                        <Grid item md={9}>
+                            <TextInputField lblTxt="Search" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={searchText} handleAction={updateSearchText} inpStyle={{marginTop: "-.8em"}}/>
+                        </Grid>
+                        <Grid item md={3}>
                             <Button variant="contained" color="success" onClick={updateSearchText} fullWidth>Search</Button>
-                        </Box>
-                    </Box>
+                        </Grid>
+                    </Grid>
 
                     {
                         searchText.length > 0 ? (
-                            <Box sx={{display: "flex"}}>
-                                <Box sx={{width: "20%"}}>
+                            <Grid item container rowSpacing={3} spacing={3}>
+                                <Grid item md={3}>
                                     <Typography variant="p">Showing result(s) for: </Typography>
-                                </Box>
-                                <Box>
+                                </Grid>
+                                <Grid item md={9}>
                                     <Typography variant="p"><strong>{searchText}</strong></Typography>
-                                </Box>
-                            </Box>
+                                </Grid>
+                            </Grid>
                         ) : ""
                     }
-                    <hr/>
 
 
-                    <Box sx={{display: "flex", justifyContent: "space-between", marginTop: "30px !important"}}>
+                    <Grid item container>
                         <TableAlternateColorAct tableData={helpingHands} handleVisibilityAction={handleVisibility} />
-                    </Box>
-                </Stack>
-            </Box>
+                    </Grid>
+                </Grid>
+            </Grid>
         </AppLayout>
     );
 }

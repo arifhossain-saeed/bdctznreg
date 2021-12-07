@@ -4,13 +4,13 @@ import InputLabel from "@mui/material/InputLabel";
 import Input from "@mui/material/Input";
 
 
-const TextInputField = ({lblTxt, lblTxtBng, fieldValue, handleAction, inputType}) => {
+const TextInputField = ({inpVariant, lblTxt, lblTxtBng, fieldValue, handleAction, inputType, inpStyle, inpFieldStyle}) => {
     const idForInput = lblTxt.toString().toLowerCase();
 
     return(
-        <FormControl variant="standard" fullWidth>
+        <FormControl variant={!inpVariant ? "standard": inpVariant} fullWidth sx={inpStyle}>
             <InputLabel htmlFor={idForInput}>{lblTxt} | <span className="banglaText">{lblTxtBng}</span></InputLabel>
-            <Input id={idForInput} value={fieldValue} onChange={handleAction} type={inputType} />
+            <Input id={idForInput} value={fieldValue} onChange={handleAction} type={inputType} sx={inpFieldStyle} />
         </FormControl>
     )
 }

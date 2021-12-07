@@ -90,135 +90,141 @@ const CitizenFormPresent = () => {
 
     return (
     <AppLayout pageTitle="Citizen Form Page [Present Address]"  pageTitleBangla="নাগরিক তথ্য সংগ্রহ [বর্তমান ঠিকানা]" pageContent="Citizen Information Collection Form">
-        <Box className="page-content">
-            <Stack direction="column" spacing={3}>
-                <SectionTitle titleText="Present Address Information" />
-                <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                    <Box sx={{width: "22%"}}>
+        <Grid container rowSpacing={3} className="page-content">
+            <Grid item container rowSpacing={3}>
+                <SectionTitle titleText="Present Address Information" textStyle={{marginTop: "-2.2em"}} />
+                <Grid item container justify="space-between" spacing={3}>
+                    <Grid item md={3}>
                         <SelectInputField txtLbl="Division" txtLblBng="বিভাগ" dataList={names} handleAction={updateDiv}  fieldValue={division} />
-                    </Box>
-                    <Box sx={{width: "22%"}}>
+                    </Grid>
+                    <Grid item md={3}>
                         <SelectInputField txtLbl="District" txtLblBng="জেলা" dataList={names} handleAction={updateDist}  fieldValue={district} />
-                    </Box>
-                    <Box sx={{width: "22%"}}>
+                    </Grid>
+                    <Grid item md={3}>
                         <SelectInputField txtLbl="Sub-District" txtLblBng="উপজেলা" dataList={names} handleAction={updateSubDist}  fieldValue={subDist} />
-                    </Box>
-                    <Box sx={{width: "22%"}}>
+                    </Grid>
+                    <Grid item md={3}>
                         <SelectInputField txtLbl="Police Station" txtLblBng="থানা" dataList={names} handleAction={updatePs}  fieldValue={ps} />
-                    </Box>
-                </Box>
+                    </Grid>
+                </Grid>
 
-                <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                    <Box sx={{width: "22%"}}>
+                <Grid item container justify="space-between" spacing={3}>
+                    <Grid item md={3}>
                         <SelectInputField txtLbl="Post Office" txtLblBng="ডাকঘর" dataList={names} handleAction={updatePo}  fieldValue={po} />
-                    </Box>
-                    <Box sx={{width: "22%"}}>
+                    </Grid>
+                    <Grid item md={3}>
                         <TextInputField lblTxt="Post Code" lblTxtBng="পোষ্ট কোড" fieldValue={postCode} handleAction={updatePostCode} />
-                    </Box>
-                    <Box sx={{width: "22%"}}>
+                    </Grid>
+                    <Grid item md={3}>
                         <SelectInputField txtLbl="City | Village" txtLblBng="শহর । গ্রাম" dataList={names} handleAction={updateCity}  fieldValue={city} />
-                    </Box>
-                    <Box sx={{width: "22%"}}>
+                    </Grid>
+                    <Grid item md={3}>
                         <SelectInputField txtLbl="Area" txtLblBng="এলাকা" dataList={names} handleAction={updateArea}  fieldValue={area} />
-                    </Box>
-                </Box>
+                    </Grid>
+                </Grid>
 
-                <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                    <Box sx={{width: "22%"}}>
+                <Grid item container justify="space-between" spacing={3}>
+                    <Grid item md={3}>
                         <TextInputField lblTxt="Section/Sector" lblTxtBng="সেকশন/সেক্টর" fieldValue={postCode} handleAction={updatePostCode} />
-                    </Box>
-                    <Box sx={{width: "22%"}}>
+                    </Grid>
+                    <Grid item md={3}>
                         <TextInputField lblTxt="Block" lblTxtBng="ব্লক" fieldValue={postCode} handleAction={updatePostCode} />
-                    </Box>
-                    <Box sx={{width: "22%"}}>
+                    </Grid>
+                    <Grid item md={3}>
                         <TextInputField lblTxt="Road" lblTxtBng="রাস্তা" fieldValue={postCode} handleAction={updatePostCode} />
-                    </Box>
-                    <Box sx={{width: "22%", display: "flex", justifyContent: "space-between"}}>
-                        <Box sx={{width: "45%"}}>
+                    </Grid>
+                    <Grid item container md={3} justify="space-between" spacing={3}>
+                        <Grid item md={3}>
                             <TextInputField lblTxt="House" lblTxtBng="বাড়ি" fieldValue={postCode} handleAction={updatePostCode} />
-                        </Box>
-                        <Box sx={{width: "45%"}}>
+                        </Grid>
+                        <Grid item md={3}>
                             <TextInputField lblTxt="Flat/Apartment" lblTxtBng="ফ্ল্যাট/এপার্টমেন্ট" fieldValue={postCode} handleAction={updatePostCode} />
-                        </Box>
-                    </Box>
-                </Box>
+                        </Grid>
+                    </Grid>
+                </Grid>
 
-                <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                    <Box sx={{width: "48%", display: "flex", justifyContent: "space-between"}}>
-                        <Box sx={{width: "45%"}}>
+                <Grid item container rowSpacing={3}>
+                    <Grid item container justify="space-between" spacing={3}>
+                        <Grid item md={6}>
                             <SelectInputField txtLbl="Month" txtLblBng="মাস" dataList={["January", "February"]} fieldValue={month} handleAction={updateMonth} />
-                        </Box>
-                        <Box sx={{width: "45%"}}>
+                        </Grid>
+                        <Grid item md={6}>
                             <SelectInputField txtLbl="Year" txtLblBng="বছর" dataList={["2001", "2000"]} fieldValue={year} handleAction={updateYear} />
-                        </Box>
-                    </Box>
-                    <Box sx={{width: "48%"}}>
+                        </Grid>
+                    </Grid>
+                    <Grid item container>
                         <TextInputField lblTxt="Nearest Landmark" lblTxtBng="নিকটস্থ পরিচিত স্থান" fieldValue={postCode} handleAction={updatePostCode} />
-                    </Box>
-                </Box>
+                    </Grid>
+                </Grid>
 
-                <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                    <Box sx={{width: "22%"}}>
+                <Grid item container justify="space-between" spacing={3}>
+                    <Grid item md={3}>
                         <TextInputField lblTxt="Land Owner" lblTxtBng="সম্পত্তির অধিকারী" fieldValue={postCode} handleAction={updatePostCode} />
-                    </Box>
-                    <Box sx={{width: "22%"}}>
+                    </Grid>
+                    <Grid item md={3}>
                         <TextInputField lblTxt="Father's Name" lblTxtBng="সম্পত্তির অধিকারীর পিতার নাম" fieldValue={postCode} handleAction={updatePostCode} />
-                    </Box>
-                    <Box sx={{width: "22%"}}>
+                    </Grid>
+                    <Grid item md={3}>
                         <TextInputField lblTxt="NID No" lblTxtBng="এনআইডি নং" fieldValue={postCode} handleAction={updatePostCode} />
-                    </Box>
-                    <Box sx={{width: "22%"}}>
+                    </Grid>
+                    <Grid item md={3}>
                         <TextInputField lblTxt="Phone" lblTxtBng="ফোন" fieldValue={postCode} handleAction={updatePostCode} />
-                    </Box>
-                </Box>
-                <Box sx={{display: "flex", justifyContent: "space-between"}}>
+                    </Grid>
+                </Grid>
+
+                <Grid item container>
                     <CheckInputField boxWidth="50%" inputChecked={isPermanent} handleAction={updateIsPermanent} lblTxt="Permanent Address" lblTxtBng="স্থায়ী ঠিকানা" />
-                </Box>
+                </Grid>
 
-                <Box sx={{display:"flex", justifyContent: "center"}}>
+                <Grid item container sx={{justifyContent: "center"}}>
                     <Button variant="contained" color="success" onClick={savePresentAddress}>Save</Button>
-                </Box>
-            </Stack>
+                </Grid>
+            </Grid>
 
 
-            <Stack direction="column" spacing={3}>
-                <SectionTitle titleText="Previous Rental Addresses" />
-                <Box sx={{display: "flex", justifyContent: "space-between"}}>
+            <Grid item container rowSpacing={3}>
+                <SectionTitle titleText="Previous Rental Addresses" textStyle={{marginTop: "-2.2em"}} />
+                <Grid item container>
                     {<Alert variant="filled" severity="info" sx={{width: "100%"}}>
                         The records are empty
                     </Alert>
                     }
-                </Box>
-                <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                    <Box sx={{width: "48%"}}>
+                </Grid>
+                <Grid item container justify="space-between" spacing={3}>
+                    <Grid item md={6}>
                         <TextInputField lblTxt="Land Owner" lblTxtBng="সম্পত্তির অধিকারী" fieldValue={postCode} handleAction={updatePostCode} />
-                    </Box>
-                    <Box sx={{width: "22%"}}>
+                    </Grid>
+                    <Grid item md={3}>
                         <TextInputField lblTxt="NID No" lblTxtBng="এনআইডি নং" fieldValue={postCode} handleAction={updatePostCode} />
-                    </Box>
-                    <Box sx={{width: "22%"}}>
+                    </Grid>
+                    <Grid item md={3}>
                         <TextInputField lblTxt="Phone" lblTxtBng="ফোন" fieldValue={postCode} handleAction={updatePostCode} />
-                    </Box>
-                </Box>
-                <Box sx={{display: "flex", justifyContent: "space-between"}}>
+                    </Grid>
+                </Grid>
+                <Grid item container>
                     <TextInputField lblTxt="Full Address" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={postCode} handleAction={updatePostCode} />
-                </Box>
-                <Box sx={{display: "flex", justifyContent: "space-between"}}>
+                </Grid>
+                <Grid item container>
                     <TextInputField lblTxt="Reason for leaving" lblTxtBng="পরিবর্তনের কারন" fieldValue={postCode} handleAction={updatePostCode} />
-                </Box>
-                <Box sx={{display:"flex", justifyContent: "center"}}>
+                </Grid>
+                <Grid item container sx={{justifyContent: "center"}}>
                     <Button variant="contained" color="success" onClick={savePreviousRentals}>Save</Button>
-                </Box>
-                <Box sx={{width: "100%", display:"flex", justifyContent: "space-between", marginTop:"30px", borderTop: "1px solid black", paddingTop: "30px"}}>
-                    <Box sx={{display:"flex", justifyContent: "left"}}>
-                        <Button variant="contained" color="error" onClick={cancelRecordCreation}>Cancel</Button>
-                    </Box>
-                    <Box sx={{display:"flex", justifyContent: "right"}}>
-                        <Button variant="contained" color="info" onClick={goToNextForm}>Next</Button>
-                    </Box>
-                </Box>
-            </Stack>
-        </Box>
+                </Grid>
+
+                <Grid item container sx={{margin: "30px 0"}}>
+                    <Box sx={{border: "1px solid black", width: "100%"}}></Box>
+                </Grid>
+
+                <Grid item container justify="space-between" spacing={6}>
+                    <Grid item md={6} sx={{justifyContent: "left"}}>
+                        <Button variant="contained" color="error" onClick={cancelRecordCreation} fullWidth>Cancel</Button>
+                    </Grid>
+                    <Grid item md={6} sx={{justifyContent: "right"}}>
+                        <Button variant="contained" color="info" onClick={goToNextForm} fullWidth>Next</Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
     </AppLayout>
     )
 };

@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 
 const AddressPresenter = ({addressLabel, addressData, addressObject}) => {
     return (
-        <Box sx={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
+        <Grid item container justify="space-between" rowSpacing={3}>
             <Grid item sm={3}>{addressLabel}</Grid>
             <Grid item sm={1}>:</Grid>
             <Grid item sm={8}>
@@ -14,7 +14,7 @@ const AddressPresenter = ({addressLabel, addressData, addressObject}) => {
                     }
                 }) : addressData }
             </Grid>
-        </Box>
+        </Grid>
     )
 }
 

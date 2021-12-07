@@ -2,13 +2,13 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 
-const LabelAndData = ({questionLabel, answerData}) => {
+const LabelAndData = ({questionLabel, questionLabelBng, answerData, lblStyle, ansStyle}) => {
     return(
-        <Box sx={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
-            <Grid item sm={4}  style={{textTransform: "capitalize"}}>{questionLabel}</Grid>
-            <Grid item sm={2}>:</Grid>
-            <Grid item sm={6}><strong>{answerData}</strong></Grid>
-        </Box>
+        <Grid container justify="space-between">
+            <Grid item xs={4} sm={4} style={{textTransform: "capitalize"}} sx={lblStyle}>{questionLabel} [<span className="banglaText">{questionLabelBng}</span>]</Grid>
+            <Grid item xs={2} sm={2} sx={{textAlign: "center"}}>:</Grid>
+            <Grid item xs={6} sm={6} sx={ansStyle}><strong>{answerData}</strong></Grid>
+        </Grid>
     )
 }
 
