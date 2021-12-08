@@ -94,100 +94,100 @@ const CitizenFormCredentials = () => {
     <AppLayout pageTitle="Citizen Form Page [Education Occupation]" pageTitleBangla="নাগরিক তথ্য সংগ্রহ [শিক্ষা পেশা]">
         <Grid container rowSpacing={3} className="page-content">
             <Grid item container rowSpacing={3}>
-                <SectionTitle titleText="Highest Education" textStyle={{marginTop: "-2.2em"}}/>
+                <SectionTitle titleText="Highest Education" titleTextBng="শিক্ষাগত যোগ্যতা" textStyle={{marginTop: "-2.2em"}}/>
                 <Grid item container justify="space-between" spacing={3}>
                     <Grid item md={6}>
-                        <TextInputField lblTxt="Name of the degree" lblTxtBng="পোষ্ট কোড" fieldValue={postCode} handleAction={updateDiv} />
+                        <TextInputField lblTxt="Name of the degree" lblTxtBng="ডিগ্রির নাম" fieldValue={postCode} handleAction={updateDiv} />
                     </Grid>
                     <Grid item md={6}>
-                        <TextInputField lblTxt="Institution Name" lblTxtBng="পোষ্ট কোড" fieldValue={postCode} handleAction={updateDiv} />
+                        <TextInputField lblTxt="Institution Name" lblTxtBng="শিক্ষা প্রতিষ্ঠানের নাম" fieldValue={postCode} handleAction={updateDiv} />
                     </Grid>
                 </Grid>
 
                 <Grid item container justify="space-between" spacing={3}>
                     <Grid item container md={6} justify="space-between" spacing={3}>
                         <Grid item md={6}>
-                            <SelectInputField txtLbl="Starting Month" txtLblBng="থানা" dataList={["Jan", "Feb"]}
+                            <SelectInputField txtLbl="Starting Month" txtLblBng="শুরুর মাস" dataList={["Jan", "Feb"]}
                                               handleAction={updatePs} fieldValue={ps}/>
                         </Grid>
                         <Grid item md={6}>
-                            <SelectInputField txtLbl="Starting Year" txtLblBng="থানা" dataList={["2001", "2000"]}
+                            <SelectInputField txtLbl="Starting Year" txtLblBng="শুরুর বছর" dataList={["2001", "2000"]}
                                               handleAction={updatePs} fieldValue={ps}/>
                         </Grid>
                     </Grid>
                     <Grid item container md={6} justify="space-between" spacing={3}>
                         <Grid item md={6}>
-                            <SelectInputField txtLbl="Completing Month" txtLblBng="থানা" dataList={["Jan", "Feb"]}
+                            <SelectInputField txtLbl="Completing Month" txtLblBng="শেষের মাস" dataList={["Jan", "Feb"]}
                                               handleAction={updatePs} fieldValue={ps}/>
                         </Grid>
                         <Grid item md={6}>
-                            <SelectInputField txtLbl="Completing Year" txtLblBng="থানা" dataList={["2001", "2000"]}
+                            <SelectInputField txtLbl="Completing Year" txtLblBng="শেষের বছর" dataList={["2001", "2000"]}
                                               handleAction={updatePs} fieldValue={ps}/>
                         </Grid>
                     </Grid>
                 </Grid>
 
                 <Grid item container>
-                    <TextInputField lblTxt="Study Gap Reason [if any]" lblTxtBng="সেকশন/সেক্টর" fieldValue={postCode} handleAction={updatePostCode}/>
+                    <TextInputField lblTxt="Study Gap Reason [if any]" lblTxtBng="শিক্ষা বিলম্বের কারন" fieldValue={postCode} handleAction={updatePostCode}/>
                 </Grid>
 
                 <Grid item container sx={{justifyContent:"center"}}>
-                    <Button variant="contained" color="success" onClick={savePresentAddress}>Save</Button>
+                    <Button variant="contained" color="success" onClick={savePresentAddress}>Save | &nbsp;<span className="banglaText">ঠিক আছে</span></Button>
                 </Grid>
             </Grid>
 
 
             <Grid item container rowSpacing={3} sx={{marginTop: "20px"}}>
-                <SectionTitle titleText="Occupation" textStyle={{marginTop: "-2.2em"}}/>
+                <SectionTitle titleText="Occupation" titleTextBng="পেশা" textStyle={{marginTop: "-2.2em"}}/>
                 <Grid item container justify="space-between" spacing={3}>
                     <Grid item md={3}>
-                        <SelectInputField txtLbl="Occupation" txtLblBng="থানা" dataList={["Web Developer", "Fullstack Developer"]} handleAction={updatePs} fieldValue={ps}/>
+                        <SelectInputField txtLbl="Occupation" txtLblBng="পেশার ধরন" dataList={["Web Developer", "Fullstack Developer"]} handleAction={updatePs} fieldValue={ps}/>
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Organizaiton Name" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={postCode}
+                        <TextInputField lblTxt="Organizaiton Name" lblTxtBng="প্রতিষ্ঠানের নাম" fieldValue={postCode}
                                         handleAction={updatePostCode}/>
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Employer Name [if any]" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={postCode}
+                        <TextInputField lblTxt="Employer Name [if any]" lblTxtBng="মালিকের নাম [যদি থাকে]" fieldValue={postCode}
                                         handleAction={updatePostCode}/>
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Organization Address" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={postCode}
+                        <TextInputField lblTxt="Organization Address" lblTxtBng="প্রতিষ্ঠানের ঠিকানা" fieldValue={postCode}
                                         handleAction={updatePostCode}/>
                     </Grid>
                 </Grid>
                 <Grid item container justify="space-between" spacing={3}>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Organization phone" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={postCode}
+                        <TextInputField lblTxt="Organization phone" lblTxtBng="প্রতিষ্ঠানের যোগাযোগ নং" fieldValue={postCode}
                                         handleAction={updatePostCode}/>
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Organization Email" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={postCode}
+                        <TextInputField lblTxt="Organization Email" lblTxtBng="প্রতিষ্ঠানের ইমেইল" fieldValue={postCode}
                                         handleAction={updatePostCode} inputType="email"/>
                     </Grid>
                     <Grid item container md={6} justify="space-between" spacing={3}>
                         <Grid item md={6}>
-                            <SelectInputField txtLbl="Start Month" txtLblBng="মাস" dataList={["January", "February"]} fieldValue={month} handleAction={updateMonth} />
+                            <SelectInputField txtLbl="Start Month" txtLblBng="কাজ শুরুর মাস" dataList={["January", "February"]} fieldValue={month} handleAction={updateMonth} />
                         </Grid>
                         <Grid item md={6}>
-                            <SelectInputField txtLbl="Start Year" txtLblBng="বছর" dataList={["2001", "2000"]} fieldValue={year} handleAction={updateYear} />
+                            <SelectInputField txtLbl="Start Year" txtLblBng="শুরুর বছর" dataList={["2001", "2000"]} fieldValue={year} handleAction={updateYear} />
                         </Grid>
                     </Grid>
                 </Grid>
 
                 <Grid item container justify="space-between" spacing={3}>
                     <Grid item md={3}>
-                        <SelectInputField txtLbl="Occupation Status" txtLblBng="মাস" dataList={["Continuing", "Ended"]} fieldValue={month} handleAction={updateMonth} />
+                        <SelectInputField txtLbl="Occupation Status" txtLblBng="পেশার বর্তমান অবস্থা" dataList={["Continuing", "Ended"]} fieldValue={month} handleAction={updateMonth} />
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Date Ended" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={postCode} handleAction={updatePostCode}/>
+                        <TextInputField lblTxt="Date Ended" lblTxtBng="শেষের তারিখ" fieldValue={postCode} handleAction={updatePostCode}/>
                     </Grid>
                     <Grid item md={6}>
-                        <TextInputField lblTxt="Reason for leaving" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={postCode} handleAction={updatePostCode}/>
+                        <TextInputField lblTxt="Reason for leaving" lblTxtBng="কাজ শেষের ব্যাপারে মন্তব্য" fieldValue={postCode} handleAction={updatePostCode}/>
                     </Grid>
                 </Grid>
                 <Grid item container sx={{justifyContent: "center"}}>
-                    <Button variant="contained" color="success" onClick={savePreviousRentals}>Save</Button>
+                    <Button variant="contained" color="success" onClick={savePreviousRentals}>Save | &nbsp;<span className="banglaText">ঠিক আছে</span></Button>
                 </Grid>
             </Grid>
 
@@ -197,13 +197,13 @@ const CitizenFormCredentials = () => {
 
             <Grid item container justify="space-between" spacing={3}>
                 <Grid item md={4}>
-                    <Button variant="contained" color="info" onClick={goToPreviousForm} fullWidth>Previous</Button>
+                    <Button variant="contained" color="info" onClick={goToPreviousForm} fullWidth>Previous | &nbsp;<span className="banglaText">আগের পাতা</span></Button>
                 </Grid>
                 <Grid item md={4}>
-                    <Button variant="contained" color="error" onClick={cancelRecordCreation} fullWidth>Cancel</Button>
+                    <Button variant="contained" color="error" onClick={cancelRecordCreation} fullWidth>Cancel | &nbsp;<span className="banglaText">এখন নয়</span></Button>
                 </Grid>
                 <Grid item md={4}>
-                    <Button variant="contained" color="info" onClick={goToNextForm} fullWidth>Next</Button>
+                    <Button variant="contained" color="info" onClick={goToNextForm} fullWidth>Next | &nbsp;<span className="banglaText">পরবর্তী</span></Button>
                 </Grid>
             </Grid>
         </Grid>

@@ -61,7 +61,7 @@ const useStyles = makeStyles({
     },
     modalStyle: {
         position: "absolute",
-        top: "40%",
+        top: "50%",
         left: "50%",
         transform: "translate(-50%, -50%)",
         width: 650,
@@ -70,7 +70,7 @@ const useStyles = makeStyles({
         padding: "30px",
         textAlign: "center",
         boxShadow: 24,
-        p: 4,
+        p: 4
     }
 })
 
@@ -92,7 +92,7 @@ function Home () {
 
     const [resendOtp, setResendOtp] = useState(false);
 
-    const [timeCount, setTimeCount] = useState(0);
+    const [timeCount, setTimeCount] = useState(30);
 
     const openOtpModal = () => {
         setTimeCount(30);
@@ -127,7 +127,7 @@ function Home () {
     }
 
     return(
-        <AppLayout pageTitle="Home" pageTitleBangla="কাচারীঘর" showRightNav={false} showLeftNav={false}>
+        <AppLayout pageTitle="Home" pageTitleBangla="হোম" showRightNav={false} showLeftNav={false}>
             <Grid sx={{width: "100%"}}>
                 <AppBar position="static">
                     <Tabs
@@ -149,32 +149,44 @@ function Home () {
                     onChangeIndex={handleChangeIndex}
                 >
                     <TabPanel value={value} index={0} dir={theme.direction} className={classes.tabPanelBg}>
-                        <Grid xs={12} sm={6} sx={{margin: "auto"}}>
-                            <Stack spacing={2} direction="column">
-                                <TextInputField fullWidth lblTxt="National ID" lblTxtBng="জাতীয় পরিচয়" id="ctzn_nid" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}}/>
-                                <TextInputField fullWidth lblTxt="Phone No" lblTxtBng="ফোন নম্বর" id="ctzn_phone" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}} />
-                                <Button variant="contained" sx={{ paddingY:"1em", paddingX: ".6em", backgroundColor: "#97B4FF", fontWeight: 300}} onClick={openOtpModal}>Find or Create Record | &nbsp;<span className="banglaText"> তথ্য খুজি অথবা তৈরি করি</span></Button>
-                            </Stack>
+                        <Grid container xs={12} sm={6} sx={{margin: "auto", justifyContent: "center"}} rowSpacing={3}>
+                            <Grid item container sx={{justifyContent: "center"}}>
+                                <TextInputField fullWidth lblTxt="National ID" lblTxtBng="জাতীয় পরিচয়" id="ctzn_nid" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}} lblStyle={{paddingLeft: "15px"}}/>
+                            </Grid>
+                            <Grid item container sx={{justifyContent: "center"}}>
+                                <TextInputField fullWidth lblTxt="Phone No" lblTxtBng="ফোন নম্বর" id="ctzn_phone" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}} lblStyle={{paddingLeft: "15px"}} />
+                            </Grid>
+                            <Grid item container sx={{justifyContent: "center"}}>
+                                <Button variant="contained" sx={{ paddingY:"1em", paddingX: ".6em", backgroundColor: "#97B4FF", fontWeight: 300}} onClick={openOtpModal} fullWidth>Find or Create Record | &nbsp;<span className="banglaText"> তথ্য খুজি অথবা তৈরি করি</span></Button>
+                            </Grid>
                         </Grid>
                     </TabPanel>
 
                     <TabPanel value={value} index={1} dir={theme.direction} className={classes.tabPanelBg}>
-                        <Grid xs={12} sm={6} sx={{margin: "auto"}}>
-                            <Stack spacing={2} direction="column">
-                                <TextInputField fullWidth lblTxt="National ID" lblTxtBng="জাতীয় পরিচয়" id="owner_nid" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}}/>
-                                <TextInputField fullWidth lblTxt="Phone No" lblTxtBng="ফোন নম্বর" id="owner_phone" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}} />
-                                <Button variant="contained" sx={{ paddingY:"1em", paddingX: ".6em", backgroundColor: "#97B4FF", fontWeight: 300}} onClick={openOtpModal}>Find or Create Record | &nbsp;<span className="banglaText"> লগ ইন করুন</span></Button>
-                            </Stack>
+                        <Grid container xs={12} sm={6} sx={{margin: "auto", justifyContent: "center"}} rowSpacing={3}>
+                            <Grid item container sx={{justifyContent: "center"}}>
+                                <TextInputField fullWidth lblTxt="National ID" lblTxtBng="জাতীয় পরিচয়" id="owner_nid" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}} lblStyle={{paddingLeft: "15px"}} />
+                            </Grid>
+                            <Grid item container sx={{justifyContent: "center"}}>
+                                <TextInputField fullWidth lblTxt="Phone No" lblTxtBng="ফোন নম্বর" id="owner_phone" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}} lblStyle={{paddingLeft: "15px"}} />
+                            </Grid>
+                            <Grid item container sx={{justifyContent: "center"}}>
+                                <Button variant="contained" sx={{ paddingY:"1em", paddingX: ".6em", backgroundColor: "#97B4FF", fontWeight: 300}} onClick={openOtpModal} fullWidth>Find or Create Record | &nbsp;<span className="banglaText">লগ ইন করুন</span></Button>
+                            </Grid>
                         </Grid>
                     </TabPanel>
 
                     <TabPanel value={value} index={2} dir={theme.direction} className={classes.tabPanelBg}>
-                        <Grid xs={12} sm={6} sx={{margin: "auto"}}>
-                            <Stack spacing={2} direction="column">
-                                <TextInputField fullWidth lblTxt="Badge or ID" lblTxtBng="ব্যাজ বা আইডি নং" id="admin_badge" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}}/>
-                                <TextInputField fullWidth lblTxt="Password" lblTxtBng="পাসওয়ার্ড" id="admin_password" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}} inputType="password" />
-                                <Button variant="contained" sx={{ paddingY:"1em", paddingX: ".6em", backgroundColor: "#97B4FF", fontWeight: 300}} onClick={openOtpModal}>Find or Create Record | &nbsp;<span className="banglaText"> লগ ইন করুন</span></Button>
-                            </Stack>
+                        <Grid container xs={12} sm={6} sx={{margin: "auto", justifyContent: "center"}} rowSpacing={3}>
+                            <Grid item container sx={{justifyContent: "center"}}>
+                                <TextInputField fullWidth lblTxt="Badge or ID" lblTxtBng="ব্যাজ বা আইডি নং" id="admin_badge" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}} lblStyle={{paddingLeft: "15px"}}/>
+                            </Grid>
+                            <Grid item container sx={{justifyContent: "center"}}>
+                                <TextInputField fullWidth lblTxt="Password" lblTxtBng="পাসওয়ার্ড" id="admin_password" variant="filled" inpStyle={{background: "white", borderRadius: "5px"}} inpFieldStyle={{padding: "13px"}} lblStyle={{paddingLeft: "15px"}} inputType="password" />
+                            </Grid>
+                            <Grid item container sx={{justifyContent: "center"}}>
+                                <Button variant="contained" sx={{ paddingY:"1em", paddingX: ".6em", backgroundColor: "#97B4FF", fontWeight: 300}} onClick={openOtpModal} fullWidth>Find or Create Record | &nbsp;<span className="banglaText">লগ ইন করুন</span></Button>
+                            </Grid>
                         </Grid>
                     </TabPanel>
                 </SwipeableViews>
@@ -185,22 +197,20 @@ function Home () {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box className={classes.modalStyle}>
-                        <Stack spacing={2} direction="column">
-                            { !resendOtp ? <Typography id="modal-modal-description">
+                    <Grid container maxWidth="md" className={classes.modalStyle} rowSpacing={3}>
+                            { !resendOtp ? <Grid item container sx={{justifyContent: "center"}}><Typography id="modal-modal-description">
                                 We sent an 8 digit OTP to the phone number you provided. <br/>Please enter that in the following box within {timeCount} secs..
-                            </Typography> : <Typography>OTP Time has expired</Typography>}
-                            { !resendOtp ? <Typography id="modal-modal-description" sx={{ fontSize: "0.9em" }}>
+                            </Typography></Grid> : <Grid item container sx={{justifyContent: "center"}}><Typography>OTP Time has expired</Typography></Grid>}
+                            { !resendOtp ? <Grid item container sx={{justifyContent: "center"}}><Typography id="modal-modal-description" sx={{ fontSize: "0.9em" }}>
                                 আপনার প্রদত্ত্ব মোবাইল নম্বর এ ৮ সংখ্যার একটি ওটিপি পাঠানো হয়েছে। <br/>অনুগ্রহ করে {timeCount} সেকেন্ডের মধ্যেই নিচের ঘরটিতে তা লিখুন...
-                            </Typography> : <Typography>ও.টি.পিটি অব্যবহারযোগ্য হয়ে গেছে</Typography>}
+                            </Typography></Grid> : <Grid item container sx={{justifyContent: "center"}}><Typography>ও.টি.পিটি অব্যবহারযোগ্য হয়ে গেছে</Typography></Grid>}
 
-                            { resendOtp ? <Button variant="link" onClick={resetTimer} sx={{color: "blue", width: "50%",  display: "flex", alignSelf: "center"}}>Resend OTP | আবার ও.টি.পি পাঠান</Button> : ""}
+                        { resendOtp ? <Grid item container sx={{justifyContent: "center"}}><Button variant="link" onClick={resetTimer} sx={{color: "blue", width: "50%",  display: "flex", alignSelf: "center"}} fullWidth>Resend OTP | আবার ও.টি.পি পাঠান</Button></Grid> : ""}
 
-                            <TextField fullWidth label="OTP | ও.টি.পি" id="otp_no" sx={{background: "white", borderRadius: "5px", width: "50%", display: "flex", alignSelf: "center", textAlign: "center" }} />
+                        <Grid item container sx={{justifyContent: "center"}}><TextField fullWidth label="OTP | ও.টি.পি" id="otp_no" sx={{background: "white", borderRadius: "5px", width: "50%", display: "flex", alignSelf: "center", textAlign: "center" }} /></Grid>
 
-                            <Button variant="contained" sx={{ paddingY:"1em", paddingX: ".6em", backgroundColor: "#97FFC1", color: "black", fontWeight: 300, width: "50%", display: "flex", alignSelf: "center" }} onClick={processOtp}>{"Submit | ও.টি.পি নিশ্চিত"}</Button>
-                        </Stack>
-                    </Box>
+                        <Grid item container sx={{justifyContent: "center"}}><Button variant="contained" sx={{ paddingY:"1em", paddingX: ".6em", backgroundColor: "#97FFC1", color: "black", fontWeight: 300, width: "50%", display: "flex", alignSelf: "center" }} onClick={processOtp} fullWidth>{"Submit | ও.টি.পি নিশ্চিত"}</Button></Grid>
+                    </Grid>
                 </Modal>
             </Grid>
         </AppLayout>

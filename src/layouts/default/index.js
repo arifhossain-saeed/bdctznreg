@@ -66,7 +66,7 @@ const useStyles = makeStyles({
     },
     footer: {
         minWidth: "100hw",
-        padding: "10px 20",
+        paddingBottom: "30px",
         display: "flex",
         justifyContent: "space-between",
         marginTop: "auto"
@@ -87,37 +87,37 @@ const AppLayout = ({pageTitle = "", pageTitleBangla="", children, showLeftNav=fa
 
             <Container container maxWidth="lg">
                 {/*<MainNavigation  className={classes.mainNavigation} />*/}
+                <header className={classes.header}>
+                    <img src={BDGovtLogo} alt="BD Logo" height="64px" />
+                    <div className={classes.pageTitle}>
+                        <Typography variant="h5">BD Citizen Registry | { pageTitle }</Typography>
+                        <Typography variant="h6" className="banglaTextHeading">বাংলাদেশ নাগরিক নথি | { pageTitleBangla }</Typography>
+                    </div>
+                    <img src={PoliceLogo} alt="Police Logo" height="64px" />
+                </header>
 
-                <Box className={classes.mainContent}>
-                    {showLeftNav ? <Grid item sm={2}><LeftNavigation /></Grid> : <></>}
+                <hr/>
+                <br/>
 
-                    <Box sm={showLeftNav && showRightNav ? 8: showLeftNav || showRightNav ? 10 : 12} rowSpacing={3}>
-                        <header className={classes.header}>
-                            <img src={BDGovtLogo} alt="BD Logo" height="64px" />
-                            <div className={classes.pageTitle}>
-                                <Typography variant="h5">BD Citizen Registry | { pageTitle }</Typography>
-                                <Typography variant="h6" className="banglaTextHeading">বাংলাদেশ নাগরিক নথি | { pageTitleBangla }</Typography>
-                            </div>
-                            <img src={PoliceLogo} alt="Police Logo" height="64px" />
-                        </header>
-                        <hr/>
-                        <br/>
+                <Grid container className={classes.mainContent}>
+                    {showLeftNav ? <Grid item container sm={2}><LeftNavigation /></Grid> : <></>}
 
-                        <Box sx={{margin: "20px 0"}}>
+                    <Grid item container sm={showLeftNav && showRightNav ? 8: showLeftNav || showRightNav ? 10 : 12} rowSpacing={3} sx={{marginTop: "25px"}}>
+
                             {children}
-                        </Box>
 
-                        <br/>
-                        <hr/>
-                        <footer className={classes.footer}>
-                            <Typography variant="p">Serving the people is our first objective</Typography>
-                            <Typography variant="p">Peoples Republic of Bangladesh</Typography>
-                        </footer>
+                    </Grid>
 
-                    </Box>
+                    {showRightNav ? <Grid item container sm={2}><RightNavigation /></Grid> : <></>}
+                </Grid>
 
-                    {showRightNav ? <Grid item sm={2}><RightNavigation /></Grid> : <></>}
-                </Box>
+                <br/>
+                <hr/>
+
+                <footer className={classes.footer}>
+                    <Typography variant="p">Serving the people is our first objective</Typography>
+                    <Typography variant="p">Peoples Republic of Bangladesh</Typography>
+                </footer>
             </Container>
         </div>
     </ScrollToTop>

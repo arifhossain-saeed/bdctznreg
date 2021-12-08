@@ -92,7 +92,7 @@ const CitizenFormPresent = () => {
     <AppLayout pageTitle="Citizen Form Page [Present Address]"  pageTitleBangla="নাগরিক তথ্য সংগ্রহ [বর্তমান ঠিকানা]" pageContent="Citizen Information Collection Form">
         <Grid container rowSpacing={3} className="page-content">
             <Grid item container rowSpacing={3}>
-                <SectionTitle titleText="Present Address Information" textStyle={{marginTop: "-2.2em"}} />
+                <SectionTitle titleText="Present Address Information" titleTextBng="বর্তমান ঠিকানা" textStyle={{marginTop: "-2.2em"}} />
                 <Grid item container justify="space-between" spacing={3}>
                     <Grid item md={3}>
                         <SelectInputField txtLbl="Division" txtLblBng="বিভাগ" dataList={names} handleAction={updateDiv}  fieldValue={division} />
@@ -134,10 +134,10 @@ const CitizenFormPresent = () => {
                         <TextInputField lblTxt="Road" lblTxtBng="রাস্তা" fieldValue={postCode} handleAction={updatePostCode} />
                     </Grid>
                     <Grid item container md={3} justify="space-between" spacing={3}>
-                        <Grid item md={3}>
+                        <Grid item md={6}>
                             <TextInputField lblTxt="House" lblTxtBng="বাড়ি" fieldValue={postCode} handleAction={updatePostCode} />
                         </Grid>
-                        <Grid item md={3}>
+                        <Grid item md={6}>
                             <TextInputField lblTxt="Flat/Apartment" lblTxtBng="ফ্ল্যাট/এপার্টমেন্ট" fieldValue={postCode} handleAction={updatePostCode} />
                         </Grid>
                     </Grid>
@@ -145,15 +145,16 @@ const CitizenFormPresent = () => {
 
                 <Grid item container rowSpacing={3}>
                     <Grid item container justify="space-between" spacing={3}>
-                        <Grid item md={6}>
-                            <SelectInputField txtLbl="Month" txtLblBng="মাস" dataList={["January", "February"]} fieldValue={month} handleAction={updateMonth} />
+                        <Grid item md={3}>
+                            <SelectInputField txtLbl="Starting Month" txtLblBng="ভাড়া শুরুর মাস" dataList={["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]} fieldValue={month} handleAction={updateMonth} />
                         </Grid>
-                        <Grid item md={6}>
-                            <SelectInputField txtLbl="Year" txtLblBng="বছর" dataList={["2001", "2000"]} fieldValue={year} handleAction={updateYear} />
+                        <Grid item md={3}>
+                            <SelectInputField txtLbl="Starting Year" txtLblBng="ভাড়া শুরুর বছর" dataList={["2001", "2000"]} fieldValue={year} handleAction={updateYear} />
                         </Grid>
-                    </Grid>
-                    <Grid item container>
-                        <TextInputField lblTxt="Nearest Landmark" lblTxtBng="নিকটস্থ পরিচিত স্থান" fieldValue={postCode} handleAction={updatePostCode} />
+
+                        <Grid item md={6}>
+                            <TextInputField lblTxt="Nearest Landmark" lblTxtBng="নিকটস্থ পরিচিত স্থান" fieldValue={postCode} handleAction={updatePostCode} />
+                        </Grid>
                     </Grid>
                 </Grid>
 
@@ -177,13 +178,13 @@ const CitizenFormPresent = () => {
                 </Grid>
 
                 <Grid item container sx={{justifyContent: "center"}}>
-                    <Button variant="contained" color="success" onClick={savePresentAddress}>Save</Button>
+                    <Button variant="contained" color="success" onClick={savePresentAddress}>Save | &nbsp;<span className="banglaText">ঠিক আছে</span></Button>
                 </Grid>
             </Grid>
 
 
             <Grid item container rowSpacing={3}>
-                <SectionTitle titleText="Previous Rental Addresses" textStyle={{marginTop: "-2.2em"}} />
+                <SectionTitle titleText="Previous Rental Addresses" titleTextBng="পূর্ববর্তী ঠিকানা" textStyle={{marginTop: "-2.2em"}} />
                 <Grid item container>
                     {<Alert variant="filled" severity="info" sx={{width: "100%"}}>
                         The records are empty
@@ -208,7 +209,7 @@ const CitizenFormPresent = () => {
                     <TextInputField lblTxt="Reason for leaving" lblTxtBng="পরিবর্তনের কারন" fieldValue={postCode} handleAction={updatePostCode} />
                 </Grid>
                 <Grid item container sx={{justifyContent: "center"}}>
-                    <Button variant="contained" color="success" onClick={savePreviousRentals}>Save</Button>
+                    <Button variant="contained" color="success" onClick={savePreviousRentals}>Save | &nbsp;<span className="banglaText">ঠিক আছে</span></Button>
                 </Grid>
 
                 <Grid item container sx={{margin: "30px 0"}}>
@@ -216,11 +217,15 @@ const CitizenFormPresent = () => {
                 </Grid>
 
                 <Grid item container justify="space-between" spacing={6}>
-                    <Grid item md={6} sx={{justifyContent: "left"}}>
-                        <Button variant="contained" color="error" onClick={cancelRecordCreation} fullWidth>Cancel</Button>
+                    <Grid item md={4} sx={{justifyContent: "left"}}>
+                        <Button variant="contained" color="error" onClick={cancelRecordCreation} fullWidth>Cancel | &nbsp;<span className="banglaText">এখন নয়</span></Button>
                     </Grid>
-                    <Grid item md={6} sx={{justifyContent: "right"}}>
-                        <Button variant="contained" color="info" onClick={goToNextForm} fullWidth>Next</Button>
+
+                    <Grid item sm={4}>
+                    </Grid>
+
+                    <Grid item md={4} sx={{justifyContent: "right"}}>
+                        <Button variant="contained" color="info" onClick={goToNextForm} fullWidth>Next | &nbsp;<span className="banglaText">পরবর্তী</span></Button>
                     </Grid>
                 </Grid>
             </Grid>

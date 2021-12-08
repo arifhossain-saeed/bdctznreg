@@ -30,19 +30,19 @@ const UserList = () => {
 
     return(
         <AppLayout
-            pageTitle="Citizen Records"
-            pageTitleBangla=""
+            pageTitle="User List"
+            pageTitleBangla="ইউজারদের তালিকা"
         >
             <Grid container rowSpacing={3} className="page-content">
 
-                <SectionTitle titleText="User List" titleTextBng="" textStyle={{marginTop: "-2.2em"}} />
+                <SectionTitle titleText="User List" titleTextBng="ইউজারদের তালিকা" textStyle={{marginTop: "-2.2em"}} />
                 <Grid item container rowSpacing={2} justify="space-between">
                     <Grid item container justify="space-between" spacing={3} rowSpacing={2}>
                         <Grid item sm={9}>
-                            <TextInputField lblTxt="Search" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={searchText} handleAction={updateSearchText} inpStyle={{marginTop: "-.8em"}}/>
+                            <TextInputField lblTxt="Search" lblTxtBng="খুঁজতে চাচ্ছি" fieldValue={searchText} handleAction={updateSearchText} inpStyle={{marginTop: "-.8em"}}/>
                         </Grid>
                         <Grid item sm={3}>
-                            <Button variant="contained" color="success" onClick={updateSearchText} fullWidth>Search</Button>
+                            <Button variant="contained" color="success" onClick={updateSearchText} fullWidth>Search | &nbsp;<span className="banglaText">খুঁজতে চাচ্ছি</span></Button>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -70,7 +70,7 @@ const UserList = () => {
                     <Box sx={{border: "1px solid black", width: "100%"}}></Box>
                 </Grid>
                 <Grid item container sx={{justifyContent: "center", alignItems: "center"}}>
-                    <Button variant="contained" sx={{ backgroundColor: "#97B4FF", fontWeight: 300, margin: "0 auto"}}>{"Create User | ইউজার তৈরি করুন"}</Button>
+                    <Button variant="contained" sx={{ backgroundColor: "#97B4FF", fontWeight: 300, margin: "0 auto"}}>Create User |&nbsp;<span className="banglaText">ইউজার তৈরি করুন</span></Button>
                 </Grid>
             </Grid>
         </AppLayout>

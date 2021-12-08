@@ -146,10 +146,10 @@ const UserDetail = () => {
     }
 
     return (
-        <AppLayout pageTitle="User Detail" pageTitleBangla="নাগরিক তথ্য বিবরনী" pageContent="Details about a citizen">
+        <AppLayout pageTitle="User Detail" pageTitleBangla="ইউজারের তথ্য বিবরনী" pageContent="Details about a user">
             <Grid container rowSpacing={3} className="page-content">
                 <Grid item container>
-                    <SectionTitle titleText="User Detail" titleTextBng="" />
+                    <SectionTitle titleText="User Detail" titleTextBng="ইউজারের বৃত্তান্ত" />
                     <Grid item container justify="space-between">
                         <Grid item xs={12} sm={12} md={3} sx={{justifyContent: "center", alignItems: "center"}}>
                             <img src={CtznPicture} alt="Citizen Picture" style={{display:"flex", borderRadius: "10px", padding: "5px", backgroundColor: "#DDDDDD"}}/>
@@ -173,14 +173,14 @@ const UserDetail = () => {
                 </Grid>
 
                 <Grid item container rowSpacing={2} spacing={2} justify="space-between">
-                    <Grid item xs={12} sm={4}>
-                        <Button variant="contained" color="error" onClick={logOut} fullWidth>Cancel</Button>
+                    <Grid item xs={12} sm={4} sx={{justifyContent: "right"}}>
+                        <Button variant="contained" color="error" onClick={logOut} fullWidth>User List | &nbsp;<span className="banglaText">ইউজারদের তালিকা</span></Button>
                     </Grid>
                     <Grid item xs={12} sm={4}>
-                        <Button variant="contained" color="info" onClick={logOut} fullWidth>Clear</Button>
+
                     </Grid>
-                    <Grid item xs={12} sm={4}>
-                        <Button variant="contained" color="success" onClick={editInformation} fullWidth>Edit Information</Button>
+                    <Grid item xs={12} sm={4} sx={{justifyContent: "right"}}>
+                        <Button variant="contained" color="success" onClick={editInformation} fullWidth>Edit Information | &nbsp;<span className="banglaText">তথ্য পরিবর্তন</span></Button>
                     </Grid>
                 </Grid>
             </Grid>

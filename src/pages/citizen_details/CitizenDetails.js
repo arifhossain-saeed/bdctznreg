@@ -28,19 +28,19 @@ const CitizenDetail = () => {
     const classes = useStyles();
 
     const basicInfo = [
-        {label: "Name", labelBng: "", data: "Syed Arif Hossain"},
-        {label: "National ID No", labelBng: "", data: "26962347234"},
-        {label: "Father\'s Name", labelBng: "", data: "Syed Akhter Hossain"},
-        {label: "Mother\'s Name", labelBng: "", data: "Begum Shahanaz Akter"},
-        {label: "Date of Birth", labelBng: "", data: "1st December, 1987"},
-        {label: "Religion", labelBng: "", data: "Islam"},
-        {label: "Education", labelBng: "", data: "Masters in IT"},
-        {label: "Marital Status", labelBng: "", data: "Married"}
+        {label: "Name", labelBng: "নাম", data: "Syed Arif Hossain"},
+        {label: "National ID No", labelBng: "জাতীয় পরিচয় নং", data: "26962347234"},
+        {label: "Father\'s Name", labelBng: "পিতার নাম", data: "Syed Akhter Hossain"},
+        {label: "Mother\'s Name", labelBng: "মাতার নাম", data: "Begum Shahanaz Akter"},
+        {label: "Date of Birth", labelBng: "জন্ম তারিখ", data: "1st December, 1987"},
+        {label: "Religion", labelBng: "ধর্ম", data: "Islam"},
+        {label: "Education", labelBng: "শিক্ষা", data: "Masters in IT"},
+        {label: "Marital Status", labelBng: "বৈবাহিক অবস্থা", data: "Married"}
     ]
 
     const contactInfo = [
-        {label: "Phone", labelBng: "", data: "01911097666"},
-        {label: "Email", labelBng: "", data: "arifhossain.saeed@gmail.com"}
+        {label: "Phone", labelBng: "ফোন নং", data: "01911097666"},
+        {label: "Email", labelBng: "ইমেইল", data: "arifhossain.saeed@gmail.com"}
     ]
 
     const addresses = {
@@ -248,14 +248,15 @@ const CitizenDetail = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item container sx={{borderTop: "1px solid black", marginTop: "30px"}}>
-                    <Grid item sm={4}>{""}</Grid>
-                    <Grid item sm={4} align="center">
-                        <Button variant="contained" color="error" onClick={logOut}>Log Out</Button>
+                <Grid item container sx={{borderTop: "1px solid black", marginTop: "30px"}} spacing={3}>
+                    <Grid item sm={4} sx={{justifyContent: "right"}}>
+                        <Button variant="contained" color="error" onClick={logOut} fullWidth>Log Out |&nbsp;<span className="banglaText">লগ আউট</span> </Button>
                     </Grid>
-                    <Grid item sm={4} align="right">
-                        <Button variant="contained" color="success" onClick={editInformation}>Edit
-                            Information</Button>
+                    <Grid item sm={4}>
+                    </Grid>
+                    <Grid item sm={4} sx={{justifyContent: "right"}}>
+                        <Button variant="contained" color="success" onClick={editInformation} fullWidth>Edit
+                            Information |&nbsp;<span className="banglaText">তথ্য পরিবর্তন</span> </Button>
                     </Grid>
                 </Grid>
             </Grid>

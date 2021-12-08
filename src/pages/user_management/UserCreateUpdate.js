@@ -38,62 +38,62 @@ const UserCreateUpdate = () => {
         <AppLayout pageTitle="User Create/Update" pageTitleBangla="নাগরিক তথ্য বিবরনী" pageContent="Details about a citizen">
             <Grid container maxWidth="lg" rowSpacing={3} className="page-content">
 
-                <SectionTitle titleText="Create/Update User" titleTextBng="" textStyle={{marginTop: "-2.2em"}} />
+                <SectionTitle titleText="Create/Update User" titleTextBng="ইউজার তৈরি/সঠিক করা" textStyle={{marginTop: "-2.2em"}} />
                 <Grid item container rowSpacing={2}>
                     <Grid item container spacing={3} rowSpacing={2}>
                         <Grid item container xs={12} sm={12} md={9} rowSpacing={2}  className="user-information">
                             <Grid item container spacing={2} justify="space-between">
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Name" lblTxtBng="সেকশন/সেক্টর" fieldValue={userName} handleAction={updateUserName} />
+                                    <TextInputField lblTxt="Name" lblTxtBng="নাম" fieldValue={userName} handleAction={updateUserName} />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Badge / ID" lblTxtBng="সেকশন/সেক্টর" fieldValue={userName} handleAction={updateUserName} />
+                                    <TextInputField lblTxt="Badge / ID" lblTxtBng="ব্যাজ / আইডি নং" fieldValue={userName} handleAction={updateUserName} />
                                 </Grid>
                             </Grid>
                             <Grid item container spacing={2} justify="space-between">
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Designation" lblTxtBng="সেকশন/সেক্টর" fieldValue={userName} handleAction={updateUserName} />
+                                    <TextInputField lblTxt="Designation" lblTxtBng="পদবী" fieldValue={userName} handleAction={updateUserName} />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Station / Office" lblTxtBng="সেকশন/সেক্টর" fieldValue={userName} handleAction={updateUserName} />
+                                    <TextInputField lblTxt="Station / Office" lblTxtBng="স্টেশন / অফিস" fieldValue={userName} handleAction={updateUserName} />
                                 </Grid>
                             </Grid>
                             <Grid item container spacing={2} justify="space-between">
                                 <Grid item xs={12} sm={3} md={3}>
-                                    <SelectInputField txtLbl="Joined Day" txtLblBng="সেকশন/সেক্টর" dataList={["1", "2", "3"]} fieldValue={userName} handleAction={updateUserName} />
+                                    <SelectInputField txtLbl="Joined Day" txtLblBng="জয়েনিং এর দিন" dataList={["1", "2", "3"]} fieldValue={userName} handleAction={updateUserName} />
                                 </Grid>
                                 <Grid item xs={12} sm={3} md={3}>
-                                    <SelectInputField txtLbl="Month" txtLblBng="সেকশন/সেক্টর" dataList={["Jan", "Feb", "Mar"]} fieldValue={userName} handleAction={updateUserName} />
+                                    <SelectInputField txtLbl="Month" txtLblBng="মাস" dataList={["Jan", "Feb", "Mar"]} fieldValue={userName} handleAction={updateUserName} />
                                 </Grid>
                                 <Grid item xs={12} sm={3} md={3}>
-                                    <SelectInputField txtLbl="Year" txtLblBng="সেকশন/সেক্টর" dataList={["1991", "1990"]} fieldValue={userName} handleAction={updateUserName} />
+                                    <SelectInputField txtLbl="Year" txtLblBng="বছর" dataList={["1991", "1990"]} fieldValue={userName} handleAction={updateUserName} />
                                 </Grid>
                                 <Grid item xs={12} sm={3} md={3}>
-                                    <SelectInputField txtLbl="Status" txtLblBng="সেকশন/সেক্টর" dataList={["Active", "Inactive"]} fieldValue={userName} handleAction={updateUserName} />
+                                    <SelectInputField txtLbl="Status" txtLblBng="বর্তমান অবস্থা" dataList={["Active", "Inactive"]} fieldValue={userName} handleAction={updateUserName} />
                                 </Grid>
                             </Grid>
                             <Grid item container spacing={2} justify="space-between">
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Phone" lblTxtBng="সেকশন/সেক্টর" fieldValue={userName} handleAction={updateUserName} />
+                                    <TextInputField lblTxt="Phone" lblTxtBng="ফোন নং" fieldValue={userName} handleAction={updateUserName} />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Email" lblTxtBng="সেকশন/সেক্টর" fieldValue={userName} handleAction={updateUserName} />
-                                </Grid>
-                            </Grid>
-                            <Grid item container spacing={2} justify="space-between">
-                                <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Supervisor" lblTxtBng="সেকশন/সেক্টর" fieldValue={userName} handleAction={updateUserName} />
-                                </Grid>
-                                <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Supervisor Designation" lblTxtBng="সেকশন/সেক্টর" fieldValue={userName} handleAction={updateUserName} />
+                                    <TextInputField lblTxt="Email" lblTxtBng="ইমেইল" fieldValue={userName} handleAction={updateUserName} />
                                 </Grid>
                             </Grid>
                             <Grid item container spacing={2} justify="space-between">
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Station In-charge" lblTxtBng="সেকশন/সেক্টর" fieldValue={userName} handleAction={updateUserName} />
+                                    <TextInputField lblTxt="Supervisor" lblTxtBng="সুপারভাইজর" fieldValue={userName} handleAction={updateUserName} />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="In-charge Designation" lblTxtBng="সেকশন/সেক্টর" fieldValue={userName} handleAction={updateUserName} />
+                                    <TextInputField lblTxt="Supervisor Designation" lblTxtBng="সুপারভাইজরের পদবী" fieldValue={userName} handleAction={updateUserName} />
+                                </Grid>
+                            </Grid>
+                            <Grid item container spacing={2} justify="space-between">
+                                <Grid item xs={12} sm={6} md={6}>
+                                    <TextInputField lblTxt="Station In-charge" lblTxtBng="স্টেশন / অফিস ইন-চার্জ" fieldValue={userName} handleAction={updateUserName} />
+                                </Grid>
+                                <Grid item xs={12} sm={6} md={6}>
+                                    <TextInputField lblTxt="In-charge Designation" lblTxtBng="ইন-চার্জের পদবী" fieldValue={userName} handleAction={updateUserName} />
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -114,13 +114,13 @@ const UserCreateUpdate = () => {
 
                 <Grid item container rowSpacing={2} spacing={2} justify="space-between">
                     <Grid item xs={12} sm={4}>
-                        <Button variant="contained" color="error" onClick={cancelOperation} fullWidth>Cancel</Button>
+                        <Button variant="contained" color="error" onClick={cancelOperation} fullWidth>Cancel | &nbsp;<span className="banglaText">এখন নয়</span></Button>
                     </Grid>
                     <Grid item xs={12} sm={4}>
-                        <Button variant="contained" color="info" onClick={clearFields} fullWidth>Clear</Button>
+                        <Button variant="contained" color="info" onClick={clearFields} fullWidth>Clear | &nbsp;<span className="banglaText">আবার</span></Button>
                     </Grid>
                     <Grid item xs={12} sm={4}>
-                        <Button variant="contained" color="success" onClick={saveRecord} fullWidth>Save</Button>
+                        <Button variant="contained" color="success" onClick={saveRecord} fullWidth>Save | &nbsp;<span className="banglaText">ঠিক আছে</span></Button>
                     </Grid>
                 </Grid>
             </Grid>
