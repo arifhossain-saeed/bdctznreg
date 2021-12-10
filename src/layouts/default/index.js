@@ -85,7 +85,7 @@ const AppLayout = ({pageTitle = "", pageTitleBangla="", children, showLeftNav=fa
         <div className={classes.app}>
             <CssBaseline />
 
-            <Container container maxWidth="lg">
+            <Container container maxWidth="lg" sx={{paddingTop: "3em"}}>
                 {/*<MainNavigation  className={classes.mainNavigation} />*/}
                 <header className={classes.header}>
                     <img src={BDGovtLogo} alt="BD Logo" height="64px" />
