@@ -61,6 +61,7 @@ const CitizenFormPermanent = () => {
 
     const [month, updateMonth] = useInputState("");
     const [year, updateYear] = useInputState("");
+    const [oneLineAddress, setOneLineAddress] = useToggleState(false);
 
     const savePresentAddress = () => {
 
@@ -99,60 +100,71 @@ const CitizenFormPermanent = () => {
             <Grid container rowSpacing={3} className="page-content">
                 <Grid item container rowSpacing={3}>
                     <SectionTitle titleText="Permanent Address" titleTextBng="স্থায়ী ঠিকানা" textStyle={{marginTop:"-2.2em"}}/>
-                    <Grid item container justify="space-betwee" spacing={3}>
-                        <Grid item md={3}>
-                            <SelectInputField txtLbl="Division" txtLblBng="বিভাগ" dataList={names} handleAction={updateDiv} fieldValue={division}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <SelectInputField txtLbl="District" txtLblBng="জেলা" dataList={names} handleAction={updateDist} fieldValue={district}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <SelectInputField txtLbl="Sub-District" txtLblBng="উপজেলা" dataList={names} handleAction={updateSubDist} fieldValue={subDist}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <SelectInputField txtLbl="Police Station" txtLblBng="থানা" dataList={names} handleAction={updatePs} fieldValue={ps}/>
+                    <Grid item container>
+                        <Grid item>
+                            <CheckInputField inputChecked={oneLineAddress} handleAction={setOneLineAddress} lblTxt="Full Address in one line?" lblTxtBng="সম্পূর্ন ঠিকানা একই সারিতে?" />
                         </Grid>
                     </Grid>
-
-                    <Grid item container justify="space-between" spacing={3}>
-                        <Grid item md={3}>
-                            <SelectInputField txtLbl="Post Office" txtLblBng="ডাকঘর" dataList={names} handleAction={updatePo} fieldValue={po}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <TextInputField lblTxt="Post Code" lblTxtBng="পোষ্ট কোড" fieldValue={postCode} handleAction={updatePostCode}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <TextInputField lblTxt="City | Village" lblTxtBng="শহর । গ্রাম" handleAction={updateCity} fieldValue={city}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <TextInputField lblTxt="Area" lblTxtBng="এলাকা" handleAction={updateArea} fieldValue={area}/>
-                        </Grid>
-                    </Grid>
-
-                    <Grid item container justify="space-between" spacing={3}>
-                        <Grid item md={3}>
-                            <TextInputField lblTxt="Section/Sector" lblTxtBng="সেকশন/সেক্টর" fieldValue={postCode}
-                                            handleAction={updatePostCode}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <TextInputField lblTxt="Block" lblTxtBng="ব্লক" fieldValue={postCode}
-                                            handleAction={updatePostCode}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <TextInputField lblTxt="Road" lblTxtBng="রাস্তা" fieldValue={postCode}
-                                            handleAction={updatePostCode}/>
-                        </Grid>
-                        <Grid item container md={3} justify="space-between" spacing={3}>
-                            <Grid item md={6}>
-                                <TextInputField lblTxt="House" lblTxtBng="বাড়ি" fieldValue={postCode}
-                                                handleAction={updatePostCode}/>
+                    { !oneLineAddress ?
+                        <>
+                            <Grid item container justify="space-betwee" spacing={3}>
+                                <Grid item md={3}>
+                                    <SelectInputField txtLbl="Division" txtLblBng="বিভাগ" dataList={names} handleAction={updateDiv} fieldValue={division}/>
+                                </Grid>
+                                <Grid item md={3}>
+                                    <SelectInputField txtLbl="District" txtLblBng="জেলা" dataList={names} handleAction={updateDist} fieldValue={district}/>
+                                </Grid>
+                                <Grid item md={3}>
+                                    <SelectInputField txtLbl="Sub-District" txtLblBng="উপজেলা" dataList={names} handleAction={updateSubDist} fieldValue={subDist}/>
+                                </Grid>
+                                <Grid item md={3}>
+                                    <SelectInputField txtLbl="Police Station" txtLblBng="থানা" dataList={names} handleAction={updatePs} fieldValue={ps}/>
+                                </Grid>
                             </Grid>
-                            <Grid item md={6}>
-                                <TextInputField lblTxt="Flat/Apartment" lblTxtBng="ফ্ল্যাট/এপার্টমেন্ট"
-                                                fieldValue={postCode} handleAction={updatePostCode}/>
+                            <Grid item container justify="space-between" spacing={3}>
+                                <Grid item md={3}>
+                                    <SelectInputField txtLbl="Post Office" txtLblBng="ডাকঘর" dataList={names} handleAction={updatePo} fieldValue={po}/>
+                                </Grid>
+                                <Grid item md={3}>
+                                    <TextInputField lblTxt="Post Code" lblTxtBng="পোষ্ট কোড" fieldValue={postCode} handleAction={updatePostCode}/>
+                                </Grid>
+                                <Grid item md={3}>
+                                    <TextInputField lblTxt="City | Village" lblTxtBng="শহর । গ্রাম" handleAction={updateCity} fieldValue={city}/>
+                                </Grid>
+                                <Grid item md={3}>
+                                    <TextInputField lblTxt="Area" lblTxtBng="এলাকা" handleAction={updateArea} fieldValue={area}/>
+                                </Grid>
                             </Grid>
+
+                            <Grid item container justify="space-between" spacing={3}>
+                                <Grid item md={3}>
+                                    <TextInputField lblTxt="Section/Sector" lblTxtBng="সেকশন/সেক্টর" fieldValue={postCode}
+                                                    handleAction={updatePostCode}/>
+                                </Grid>
+                                <Grid item md={3}>
+                                    <TextInputField lblTxt="Block" lblTxtBng="ব্লক" fieldValue={postCode}
+                                                    handleAction={updatePostCode}/>
+                                </Grid>
+                                <Grid item md={3}>
+                                    <TextInputField lblTxt="Road" lblTxtBng="রাস্তা" fieldValue={postCode}
+                                                    handleAction={updatePostCode}/>
+                                </Grid>
+                                <Grid item container md={3} justify="space-between" spacing={3}>
+                                    <Grid item md={6}>
+                                        <TextInputField lblTxt="House" lblTxtBng="বাড়ি" fieldValue={postCode}
+                                                        handleAction={updatePostCode}/>
+                                    </Grid>
+                                    <Grid item md={6}>
+                                        <TextInputField lblTxt="Flat/Apartment" lblTxtBng="ফ্ল্যাট/এপার্টমেন্ট"
+                                                        fieldValue={postCode} handleAction={updatePostCode}/>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </> :
+                        <Grid item container>
+                            <TextInputField lblTxt="Full Address" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={postCode} handleAction={updatePostCode} />
                         </Grid>
-                    </Grid>
+                    }
 
                     <Grid item container sx={{justifyContent: "center"}}>
                         <Button variant="contained" color="success" onClick={savePresentAddress}>Save | &nbsp;<span className="banglaText">ঠিক আছে</span></Button>
