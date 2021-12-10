@@ -25,7 +25,6 @@ const AppRoutes = () => (
         <Route path="/ctzn_form_credentials" exact element={<CitizenFormCredentials/>}/>
         <Route path="/ctzn_form_members" exact element={<CitizenFormMembers/>}/>
         <Route path="/ctzn_form_helps" exact element={<CitizenFormHelps/>}/>
-        <Route path="/ctzn_form_photo" exact element={<CitizenFormPhoto/>}/>
         <Route path="/ctzn_records_owner" exact element={<CitizenRecords/>}/>
         <Route path="/ctzn_records_admin" exact element={<CitizenRecordsAdmin/>}/>
         <Route path="/user_create_update_admin" exact element={<UserCreateUpdate/>}/>

@@ -14,3 +14,11 @@ export const MODAL_CLOSE = "MODAL_CLOSE";
 
 
 // User Action Types
+
+// District Action Types
+export const FETCH_DISTRICTS = "FETCH_DISTRICTS";
+export const FETCH_DISTRICT = "FETCH_DISTRICT";
+
+// SubDistrict Action Types
+export const FETCH_SUBDISTRICTS = "FETCH_SUBDISTRICTS";
+export const FETCH_SUBDISTRICT = "FETCH_SUBDISTRICT";

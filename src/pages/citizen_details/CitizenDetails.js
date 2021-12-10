@@ -248,7 +248,12 @@ const CitizenDetail = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item container sx={{borderTop: "1px solid black", marginTop: "30px"}} spacing={3}>
+
+                <Grid item container sx={{margin: "30px 0"}}>
+                    <Box sx={{border: "1px solid black", width: "100%"}}></Box>
+                </Grid>
+
+                <Grid item container spacing={3}>
                     <Grid item sm={4} sx={{justifyContent: "right"}}>
                         <Button variant="contained" color="error" onClick={logOut} fullWidth>Log Out |&nbsp;<span className="banglaText">লগ আউট</span> </Button>
                     </Grid>

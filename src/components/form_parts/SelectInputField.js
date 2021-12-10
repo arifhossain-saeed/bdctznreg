@@ -16,9 +16,9 @@ const SelectInputField = ({txtLbl, txtLblBng, dataList, fieldValue, handleAction
                 value={fieldValue}
                 onChange={handleAction}
             >
-                {dataList.map((data) => (
+                {dataList.map((data, index) => (
                     <MenuItem
-                        key={data}
+                        key={index}
                         value={data}
                     >
                         {data}

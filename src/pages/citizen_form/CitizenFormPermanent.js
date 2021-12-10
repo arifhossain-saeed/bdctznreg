@@ -122,10 +122,10 @@ const CitizenFormPermanent = () => {
                             <TextInputField lblTxt="Post Code" lblTxtBng="পোষ্ট কোড" fieldValue={postCode} handleAction={updatePostCode}/>
                         </Grid>
                         <Grid item md={3}>
-                            <SelectInputField txtLbl="City | Village" txtLblBng="শহর । গ্রাম" dataList={names} handleAction={updateCity} fieldValue={city}/>
+                            <TextInputField lblTxt="City | Village" lblTxtBng="শহর । গ্রাম" handleAction={updateCity} fieldValue={city}/>
                         </Grid>
                         <Grid item md={3}>
-                            <SelectInputField txtLbl="Area" txtLblBng="এলাকা" dataList={names} handleAction={updateArea} fieldValue={area}/>
+                            <TextInputField lblTxt="Area" lblTxtBng="এলাকা" handleAction={updateArea} fieldValue={area}/>
                         </Grid>
                     </Grid>
 
@@ -154,80 +154,6 @@ const CitizenFormPermanent = () => {
                         </Grid>
                     </Grid>
 
-                    <Grid item container sx={{justifyContent: "center"}}>
-                        <Button variant="contained" color="success" onClick={savePresentAddress}>Save | &nbsp;<span className="banglaText">ঠিক আছে</span></Button>
-                    </Grid>
-                </Grid>
-
-
-                <Grid item container rowSpacing={3}>
-                    <SectionTitle titleText="Citizen Bio" titleTextBng="জীবন বৃত্তান্ত" textStyle={{marginTop: "-2.2em"}}/>
-                    <Grid item container justify="space-between" spacing={3}>
-                        <Grid item md={6}>
-                            <TextInputField lblTxt="Full Name" lblTxtBng="সম্পূর্ন নাম" fieldValue={postCode} handleAction={updatePostCode}/>
-                        </Grid>
-
-                        <Grid item container md={6} justify="space-between" spacing={3}>
-                            <Grid item md={4}>
-                                <SelectInputField txtLbl="Birth Day" txtLblBng="জন্ম দিন" dataList={["1", "2"]}
-                                                  handleAction={updatePs} fieldValue={ps}/>
-                            </Grid>
-                            <Grid item md={4}>
-                                <SelectInputField txtLbl="Birth Month" txtLblBng="মাস" dataList={["Jan", "Feb"]}
-                                                  handleAction={updatePs} fieldValue={ps}/>
-                            </Grid>
-                            <Grid item md={4}>
-                                <SelectInputField txtLbl="Birth Year" txtLblBng="বছর" dataList={["2001", "2000"]} handleAction={updatePs} fieldValue={ps}/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item container justify="space-between" spacing={3}>
-                        <Grid item md={3}>
-                            <TextInputField lblTxt="Father's Name" lblTxtBng="পিতার নাম" fieldValue={postCode} handleAction={updatePostCode}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <TextInputField lblTxt="Mother's Name" lblTxtBng="মাতার নাম" fieldValue={postCode}
-                                            handleAction={updatePostCode}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <TextInputField lblTxt="National ID" lblTxtBng="জাতীয় পরিচয় নং" fieldValue={postCode} handleAction={updatePostCode}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <SelectInputField txtLbl="Religion" txtLblBng="ধর্ম" dataList={["Muslim", "Hindu", "Christian", "Buddist", "Jew", "Other"]} handleAction={updatePs} fieldValue={ps}/>
-                        </Grid>
-                    </Grid>
-                    <Grid item container justify="space-between" spacing={3}>
-                        <Grid item md={3}>
-                            <SelectInputField txtLbl="Gender" txtLblBng="লিঙ্গ" dataList={["Male", "Female", "Other"]} handleAction={updatePs} fieldValue={ps}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <SelectInputField txtLbl="Marital Status" txtLblBng="বৈবাহিক অবস্থা" dataList={["Never Married", "Married", "Divorced", "Widowed"]} handleAction={updatePs} fieldValue={ps}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <TextInputField lblTxt="Passport No [if any]" lblTxtBng="পাসপোর্ট নং [যদি থাকে]" fieldValue={postCode} handleAction={updatePostCode}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <TextInputField lblTxt="Driving License No [if any]" lblTxtBng="ড্রাইভিং লাইসেন্স নং [যদি থাকে]" fieldValue={postCode} handleAction={updatePostCode}/>
-                        </Grid>
-                    </Grid>
-                    <Grid item container justify="space-between" spacing={3}>
-                        <Grid item md={3}>
-                            <TextInputField lblTxt="Email" lblTxtBng="ইমেইল" fieldValue={postCode}
-                                            handleAction={updatePostCode} inputType="email"/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <TextInputField lblTxt="Confirm Email" lblTxtBng="নিশ্চিতকরন ইমেইল" fieldValue={postCode}
-                                            handleAction={updatePostCode} inputType="email"/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <TextInputField lblTxt="Phone" lblTxtBng="ফোন নং" fieldValue={postCode}
-                                            handleAction={updatePostCode}/>
-                        </Grid>
-                        <Grid item md={3}>
-                            <TextInputField lblTxt="Alternate Phone" lblTxtBng="অন্য ফোন নং" fieldValue={postCode}
-                                            handleAction={updatePostCode}/>
-                        </Grid>
-                    </Grid>
                     <Grid item container sx={{justifyContent: "center"}}>
                         <Button variant="contained" color="success" onClick={savePresentAddress}>Save | &nbsp;<span className="banglaText">ঠিক আছে</span></Button>
                     </Grid>

@@ -30,17 +30,17 @@ const CitizenRecords = () => {
     return(
         <AppLayout
             pageTitle="Citizen Records"
-            pageTitleBangla=""
+            pageTitleBangla="নাগরিক তালিকা"
         >
             <Grid container rowSpacing={3} className="page-content">
-                <SectionTitle titleText="Citizen Records" textStyle={{marginTop: "-2.2em"}} />
+                <SectionTitle titleText="Citizen Records" titleTextBng="নাগরিক তালিকা" textStyle={{marginTop: "-2.2em"}} />
                 <Grid container rowSpacing={3}>
                     <Grid item container spacing={3} justify="space-between">
                         <Grid item md={9}>
-                            <TextInputField lblTxt="Search" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={searchText} handleAction={updateSearchText} inpStyle={{marginTop: "-.8em"}}/>
+                            <TextInputField lblTxt="Search" lblTxtBng="সন্ধান" fieldValue={searchText} handleAction={updateSearchText} inpStyle={{marginTop: "-.8em"}}/>
                         </Grid>
                         <Grid item md={3}>
-                            <Button variant="contained" color="success" onClick={updateSearchText} fullWidth>Search</Button>
+                            <Button variant="contained" color="success" onClick={updateSearchText} fullWidth>Search | &nbsp;<span className="banglaText">খুঁজি</span></Button>
                         </Grid>
                     </Grid>
 

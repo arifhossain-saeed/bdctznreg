@@ -99,7 +99,7 @@ function Home () {
         setModalState(true);
     }
     const closeOtpModal = () => {
-        setTimeCount(0);
+        setTimeCount(30);
         setModalState(false);
     }
     const resetTimer = () => {
