@@ -10,7 +10,7 @@ const AddressPresenter = ({addressLabel, addressData, addressObject,addressLabel
             <Grid item sm={8}>
                 {addressObject? Object.keys(addressObject).map((key, index) => {
                     if(addressObject[key] && !key.toString().includes("hereSince")) {
-                        return <span style={{textTransform: "capitalize",  }}>{key.toString()} : <strong>{addressObject[key].toString()}</strong>{!key.toString().includes("postCode") ? ",":""}&nbsp;</span>;
+                        return <span key={index} style={{textTransform: "capitalize",  }}>{key.toString()} : <strong>{addressObject[key].toString()}</strong>{!key.toString().includes("postCode") ? ",":""}&nbsp;</span>;
                     }
                 }) : addressData }
             </Grid>

@@ -247,7 +247,7 @@ const CitizenFormPresent = () => {
                         </Grid>
                     </> :
                     <Grid item container>
-                        <TextInputField lblTxt="Full Address" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={postCode} handleAction={updatePostCode} />
+                        <TextInputField lblTxt="Full Address" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={postCode} multipleLine={3} handleAction={updatePostCode} />
                     </Grid>
                 }
 

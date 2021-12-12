@@ -5,7 +5,7 @@ export const allDistricts = () => async(dispatch) => {
     try {
         const {data} = await api.fetchDistricts();
         dispatch({type: FETCH_DISTRICTS, payload: data})
-    } catch (e) {
-        console.log(e.message);
+    } catch (err) {
+        console.log(err.message);
     }
 }

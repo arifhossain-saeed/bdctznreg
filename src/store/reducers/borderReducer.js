@@ -14,6 +14,6 @@ export const subDistricts = (subDistricts = [], action) => {
         case FETCH_SUBDISTRICTS:
             return action.payload;
         default:
-            return  subDistricts;
+            return subDistricts;
     }
 }

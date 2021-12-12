@@ -15,6 +15,8 @@ import TableAlterateColor from "../../components/page_parts/TableAlternateColor"
 import TableAlternateColor from "../../components/page_parts/TableAlternateColor";
 import Button from "@mui/material/Button";
 import {theme} from "../../theme";
+import {useDispatch, useSelector} from "react-redux";
+import {logoutAttempt} from "../../store/actions/login";
 
 const useStyles = makeStyles({
     [theme.breakpoints.down("sm")]: {
@@ -26,6 +28,8 @@ const useStyles = makeStyles({
 
 const CitizenDetail = () => {
     const classes = useStyles();
+    const citizen = useSelector((state) => state.citizen);
+    const loggedInState = useSelector((state) => state.loginState);
 
     const basicInfo = [
         {label: "Name", labelBng: "নাম", data: "Syed Arif Hossain"},
@@ -152,9 +156,11 @@ const CitizenDetail = () => {
         },
     ]
 
+    const dispatch = useDispatch();
     let navigate = useNavigate();
     const logOut = () => {
-        navigate("/");
+        dispatch(logoutAttempt())
+        navigate('/');
     }
 
     const editInformation = () => {
@@ -178,16 +184,15 @@ const CitizenDetail = () => {
                             }}/>
                         </Grid>
                         <Grid item xs={12} sm={12} md={9} className={classes.lAndQ}>
-                            {basicInfo.length ? basicInfo.map(lnd =>
-                                <LabelAndData questionLabel={lnd.label} questionLabelBng={lnd.labelBng}
+                            {basicInfo.length ? basicInfo.map((lnd, index) =>
+                                <LabelAndData key={index} questionLabel={lnd.label} questionLabelBng={lnd.labelBng}
                                               answerData={lnd.data} lblStyle={{textAlign: "right"}}
                                               ansStyle={{textAlign: "left"}}/>
                             ) : ""}
 
-                            {contactInfo.length ? contactInfo.map(lnd => {
+                            {contactInfo.length ? contactInfo.map((lnd, index) => {
                                 if (!lnd.label.includes("Address")) {
-                                    return <LabelAndData questionLabel={lnd.label} questionLabelBng={lnd.labelBng}
-                                                         answerData={lnd.data} lblStyle={{textAlign: "right"}}
+                                    return <LabelAndData key={index} questionLabel={lnd.label} questionLabelBng={lnd.labelBng} answerData={lnd.data} lblStyle={{textAlign: "right"}}
                                                          ansStyle={{textAlign: "left"}}/>
                                 }
                             }) : ""}
@@ -209,7 +214,7 @@ const CitizenDetail = () => {
                     <Grid container rowSpacing={2} sx={{marginTop: "20px"}}>
                         {Object.keys(landOwner).map((key, index) => {
                             return (
-                                <Grid item xs={12} sm={6}>
+                                <Grid key={index} item xs={12} sm={6}>
                                     <LabelAndData questionLabel={key.toString()} answerData={landOwner[key]}/>
                                 </Grid>
                             )

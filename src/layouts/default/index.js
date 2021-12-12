@@ -3,6 +3,7 @@ import { CssBaseline } from "@mui/material";
 import Container from "@mui/material/Container";
 import { makeStyles } from '@mui/styles'
 import { theme } from "../../theme";
+import PropTypes from 'prop-types';
 import MainNavigation from "../../components/layout_parts/MainNavigation";
 import LeftNavigation from "../../components/layout_parts/LeftNavigation";
 import RightNavigation from "../../components/layout_parts/RightNavigation";
@@ -15,7 +16,7 @@ import BDGovtLogo from "../../assets/images/bangladeshGovtLogo.png";
 import PoliceLogo from "../../assets/images/bangladeshPoliceLogo.png";
 import Box from "@mui/material/Box";
 
-import {useLocation} from "react-router-dom";
+import {useLocation, Routes, Route, Navigate } from "react-router-dom";
 
 
 
@@ -40,7 +41,7 @@ const useStyles = makeStyles({
         display: "flex",
         justifyContent: "space-between"
     },
-    container: {
+    containerClass: {
         marginTop: "20px",
         display: "flex",
         flexDirection: "row",
@@ -83,44 +84,52 @@ const AppLayout = ({pageTitle = "", pageTitleBangla="", children, showLeftNav=fa
     return (
     <ScrollToTop>
         <div className={classes.app}>
-            <CssBaseline />
+                <CssBaseline />
 
-            <Container container maxWidth="lg" sx={{paddingTop: "3em"}}>
-                {/*<MainNavigation  className={classes.mainNavigation} />*/}
-                <header className={classes.header}>
-                    <img src={BDGovtLogo} alt="BD Logo" height="64px" />
-                    <div className={classes.pageTitle}>
-                        <Typography variant="h5">BD Citizen Registry | { pageTitle }</Typography>
-                        <Typography variant="h6" className="banglaTextHeading">বাংলাদেশ নাগরিক নথি | { pageTitleBangla }</Typography>
-                    </div>
-                    <img src={PoliceLogo} alt="Police Logo" height="64px" />
-                </header>
+                <Container maxWidth="lg" sx={{paddingTop: "3em"}}>
+                    {/*<MainNavigation  className={classes.mainNavigation} />*/}
+                    <header className={classes.header}>
+                        <img src={BDGovtLogo} alt="BD Logo" height="64px" />
+                        <div className={classes.pageTitle}>
+                            <Typography variant="h5">BD Citizen Registry | { pageTitle }</Typography>
+                            <Typography variant="h6" className="banglaTextHeading">বাংলাদেশ নাগরিক নথি | { pageTitleBangla }</Typography>
+                        </div>
+                        <img src={PoliceLogo} alt="Police Logo" height="64px" />
+                    </header>
 
-                <hr/>
-                <br/>
+                    <hr/>
+                    <br/>
 
-                <Grid container className={classes.mainContent}>
-                    {showLeftNav ? <Grid item container sm={2}><LeftNavigation /></Grid> : <></>}
+                    <Grid container className={classes.mainContent}>
+                        {showLeftNav ? <Grid item container sm={2}><LeftNavigation /></Grid> : <></>}
 
-                    <Grid item container sm={showLeftNav && showRightNav ? 8: showLeftNav || showRightNav ? 10 : 12} rowSpacing={3} sx={{marginTop: "25px"}}>
+                        <Grid item container sm={showLeftNav && showRightNav ? 8: showLeftNav || showRightNav ? 10 : 12} rowSpacing={3} sx={{marginTop: "25px"}}>
 
                             {children}
 
+                        </Grid>
+
+                        {showRightNav ? <Grid item container sm={2}><RightNavigation /></Grid> : <></>}
                     </Grid>
 
-                    {showRightNav ? <Grid item container sm={2}><RightNavigation /></Grid> : <></>}
-                </Grid>
+                    <br/>
+                    <hr/>
 
-                <br/>
-                <hr/>
-
-                <footer className={classes.footer}>
-                    <Typography variant="p">Serving the people is our first objective</Typography>
-                    <Typography variant="p">Peoples Republic of Bangladesh</Typography>
-                </footer>
-            </Container>
-        </div>
+                    <footer className={classes.footer}>
+                        <Typography variant="p">Serving the people is our first objective</Typography>
+                        <Typography variant="p">Peoples Republic of Bangladesh</Typography>
+                    </footer>
+                </Container>
+            </div>
     </ScrollToTop>
 )};
+
+AppLayout.propTypes = {
+    children: PropTypes.node.isRequired,
+    pageTitle: PropTypes.string.isRequired,
+    pageTitleBangla: PropTypes.string.isRequired,
+    showLeftNav: PropTypes.bool,
+    showRightNav: PropTypes.bool
+}
 
 export default AppLayout;

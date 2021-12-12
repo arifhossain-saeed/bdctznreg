@@ -1,19 +1,13 @@
 // Custom Imports
-import { LOGIN_SUCCESS } from "../actions/actionTypes";
+import { LOGIN, LOGOUT } from "../actions/actionTypes";
 
-
-// Default State
-const defaultState = {
-    recordFound: false
-}
-
-export default function reducer(state = defaultState, action) {
-    console.log({state, action});
-
+export const loginState = (loggedIn=false, action) => {
     switch (action.type) {
-        case LOGIN_SUCCESS:
-            return { ...state, recordFound: true};
+        case LOGIN:
+            return action.payload;
+        case LOGOUT:
+            return action.payload;
         default:
-            return state;
+            return loggedIn;
     }
 }

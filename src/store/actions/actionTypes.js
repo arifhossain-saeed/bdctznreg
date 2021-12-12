@@ -1,8 +1,11 @@
 // Citizen Action Types
-
+export const GET_CITIZEN = "GET_CITIZEN";
+export const CREATE_CITIZEN = "CREATE_CITIZEN";
+export const CLEAR_CITIZEN = "CLEAR_CITIZEN";
 
 // Login Action Types
-export const LOGIN_SUCCESS = "SUCCESS";
+export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT";
 
 
 // Modal Action Types
