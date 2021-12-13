@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const url = 'http://localhost:5000/bdctznreg/api/v1/';
+// const url = 'http://localhost:5000/api/v1/';
+const url = 'https://bdctznregapi.herokuapp.com/api/v1/';
 
 export const fetchDistricts = () => axios.get(url + '/districts');
 export const fetchSubDistricts = () => axios.get(url + '/sub_districts');
