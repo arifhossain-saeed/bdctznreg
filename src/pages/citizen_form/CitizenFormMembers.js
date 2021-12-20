@@ -50,7 +50,7 @@ const CitizenFormMembers = () => {
 
     }
     const cancelRecordCreation = () => {
-
+        navigate("/ctzn_detail");
     }
     const navigate = useNavigate();
     const goToPreviousForm = () => {
