@@ -16,6 +16,8 @@ import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import { allDistricts } from "../../store/actions/district";
 import { allSubDistricts } from "../../store/actions/sub_district";
+import {allPoliceStations} from "../../store/actions/police_stations";
+import {allPostOffices} from "../../store/actions/post_offices";
 
 
 const ITEM_HEIGHT = 48;
@@ -58,7 +60,7 @@ const CitizenFormPresent = () => {
     const [po, updatePo, resetPo] = useInputState("");
     const [city, updateCity, resetCity] = useInputState("");
     const [area, updateArea, resetArea] = useInputState("");
-    const [postCode, updatePostCode, resetPostCode] = useInputState("");
+    const [postCode, updatePostCode, setPostCode, resetPostCode] = useInputState("");
 
     const [isPermanent, updateIsPermanent] = useToggleState(false);
 
@@ -72,14 +74,32 @@ const CitizenFormPresent = () => {
     useEffect(() => {
         dispatch(allDistricts());
         dispatch(allSubDistricts());
+        dispatch(allPoliceStations());
+        dispatch(allPostOffices());
     },[dispatch]);
+
+    useEffect(() => {
+
+        if(po.length > 0){
+            const postOffice = postOffices.find(pOff => pOff.name.toLowerCase() === po.toLowerCase());
+            // console.log('test', postOffice)
+            setPostCode(postOffice.post_code);
+            console.log('in useEffect');
+        }
+    }, [po]);
 
     const districts = useSelector((state) => state.districts).filter(dist => dist.division.trim().toLowerCase() === division.toLowerCase()).map(d=>d.name);
 
     const subDistricts = useSelector((state) => state.subDistricts).filter(sd => sd.district.trim().toLowerCase() === district.toLowerCase()).map(sd=>sd.name);
 
+    const policeStations = useSelector((state) => state.policeStations).filter(ps => ps.district.trim().toLowerCase() === district.toLowerCase()).map(ps=>ps.name);
+
+    const postOffices = useSelector((state) => state.postOffices).filter(po => po.police_station.trim().toLowerCase() === ps.toLowerCase());
+
+    const pOffs = postOffices.map(po => po.name);
+
     // const divDistricts = districts.map(dist => dist.name);
-    console.log(districts, subDistricts);
+    console.log(districts, subDistricts, policeStations, postOffices);
 
     const savePresentAddress = () => {
 
@@ -207,13 +227,13 @@ const CitizenFormPresent = () => {
                                 <SelectInputField txtLbl="Sub-District" txtLblBng="উপজেলা" dataList={subDistricts} handleAction={updateSubDist}  fieldValue={subDist} />
                             </Grid>
                             <Grid item md={3}>
-                                <SelectInputField txtLbl="Police Station" txtLblBng="থানা" dataList={divisions} handleAction={updatePs}  fieldValue={ps} />
+                                <SelectInputField txtLbl="Police Station" txtLblBng="থানা" dataList={policeStations} handleAction={updatePs}  fieldValue={ps} />
                             </Grid>
                         </Grid>
 
                         <Grid item container justify="space-between" spacing={3}>
                             <Grid item md={3}>
-                                <SelectInputField txtLbl="Post Office" txtLblBng="ডাকঘর" dataList={divisions} handleAction={updatePo}  fieldValue={po} />
+                                <SelectInputField txtLbl="Post Office" txtLblBng="ডাকঘর" dataList={pOffs} handleAction={updatePo}  fieldValue={po} />
                             </Grid>
                             <Grid item md={3}>
                                 <TextInputField lblTxt="Post Code" lblTxtBng="পোষ্ট কোড" fieldValue={postCode} handleAction={updatePostCode} />

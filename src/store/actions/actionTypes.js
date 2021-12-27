@@ -25,3 +25,11 @@ export const FETCH_DISTRICT = "FETCH_DISTRICT";
 // SubDistrict Action Types
 export const FETCH_SUBDISTRICTS = "FETCH_SUBDISTRICTS";
 export const FETCH_SUBDISTRICT = "FETCH_SUBDISTRICT";
+
+// PoliceStation Action Types
+export const FETCH_POLICESTATIONS = "FETCH_POLICESTATIONS";
+export const FETCH_POLICESTATION = "FETCH_POLICESTATION";
+
+// PostOffice Action Types
+export const FETCH_POSTOFFICES = "FETCH_POSTOFFICES";
+export const FETCH_POSTOFFICE = "FETCH_POSTOFFICE";

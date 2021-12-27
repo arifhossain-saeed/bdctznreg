@@ -1,4 +1,4 @@
-import {FETCH_DISTRICTS, FETCH_SUBDISTRICTS} from "../actions/actionTypes";
+import {FETCH_DISTRICTS, FETCH_POLICESTATIONS, FETCH_POSTOFFICES, FETCH_SUBDISTRICTS} from "../actions/actionTypes";
 
 export const districts = (districts = [], action) => {
     switch (action.type) {
@@ -15,5 +15,23 @@ export const subDistricts = (subDistricts = [], action) => {
             return action.payload;
         default:
             return subDistricts;
+    }
+}
+
+export const policeStations = (policeStations = [], action) => {
+    switch (action.type) {
+        case FETCH_POLICESTATIONS:
+            return action.payload;
+        default:
+            return policeStations;
+    }
+}
+
+export const postOffices = (postOffices = [], action) => {
+    switch (action.type) {
+        case FETCH_POSTOFFICES:
+            return action.payload;
+        default:
+            return postOffices;
     }
 }
