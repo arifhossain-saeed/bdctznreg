@@ -18,6 +18,7 @@ import { allDistricts } from "../../store/actions/district";
 import { allSubDistricts } from "../../store/actions/sub_district";
 import {allPoliceStations} from "../../store/actions/police_stations";
 import {allPostOffices} from "../../store/actions/post_offices";
+import {DAYS, DIVISIONS, GENDERS, MARITAL_STATUS, MONTHS, RELIGIONS, YEARS} from "../../utils/consts";
 
 
 const ITEM_HEIGHT = 48;
@@ -30,17 +31,6 @@ const MenuProps = {
         },
     },
 };
-
-const divisions = [
-    'Dhaka',
-    'Chitagong',
-    'Khulna',
-    'Barisal',
-    'Sylhet',
-    'Rangpur',
-    'Rajshahi',
-    'Mymensingh'
-];
 
 function getStyles(name, personName, theme) {
     return {
@@ -60,14 +50,46 @@ const CitizenFormPresent = () => {
     const [po, updatePo, resetPo] = useInputState("");
     const [city, updateCity, resetCity] = useInputState("");
     const [area, updateArea, resetArea] = useInputState("");
-    const [postCode, updatePostCode, setPostCode, resetPostCode] = useInputState("");
-
+    const [postCode, updatePostCode, resetPostCode] = useInputState("");
     const [isPermanent, updateIsPermanent] = useToggleState(false);
-
     const [month, updateMonth] = useInputState("");
     const [year, updateYear] = useInputState("");
-    const [postData, setPostData] = useState({image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png"});
     const [oneLineAddress, setOneLineAddress] = useToggleState(false);
+    const [fullName, updateFullName, resetFullName] = useInputState("");
+    const [bDay, updateBDay, resetBDay] = useInputState("");
+    const [bMonth, updateBMonth, resetBMonth] = useInputState("");
+    const [bYear, updateBYear, resetBYear] = useInputState("");
+    const [fatherName, updateFatherName, resetFatherName] = useInputState("");
+    const [motherName, updateMotherName, resetMotherName] = useInputState("");
+    const [nid, updateNid, resetNid] = useInputState("");
+    const [religion, updateReligion, resetReligion] = useInputState("");
+    const [gender, updateGender, resetGender] = useInputState("");
+    const [mStatus, updateMStatus, resetMStatus] = useInputState("");
+    const [passport, updatePassport, resetPassport] = useInputState("");
+    const [drivingLnc, updateDrivingLnc, resetDrivingLnc] = useInputState("");
+    const [email, updateEmail, resetEmail] = useInputState("");
+    const [confEmail, updateConfEmail, resetConfEmail] = useInputState("");
+    const [phone, updatePhone, resetPhone] = useInputState("");
+    const [altPhone, updateAltPhone, resetAltPhone] = useInputState("");
+    const [sect, updateSect, resetSect] = useInputState("");
+    const [block, updateBlock, resetBlock] = useInputState("");
+    const [road, updateRoad, resetRoad] = useInputState("");
+    const [house, updateHouse, resetHouse] = useInputState("");
+    const [flat, updateFlat, resetFlat] = useInputState("");
+    const [fullAddress, updateFullAddress, resetFullAddress] = useInputState("");
+    const [landmark, updateLandmark, resetLandmark] = useInputState("");
+    const [landlord, updateLandlord, resetLandlord] = useInputState("");
+    const [llFather, updatellFather, resetllFather] = useInputState("");
+    const [llNid, updatellNid, resetllNid] = useInputState("");
+    const [llPhone, updatellPhone, resetllPhone] = useInputState("");
+    const [preLandlord, updatePreLandlord, resetPreLandlord] = useInputState("");
+    const [prellNid, updatePrellNid, resetPrellNid] = useInputState("");
+    const [prellPhone, updatePrellPhone, resetPrellPhone] = useInputState("");
+    const [preFullAddress, updatePreFullAddress, resetPreFullAddress] = useInputState("");
+    const [preChangeReason, updatePreChangeReason, resetChangeReason] = useInputState("");
+
+
+    const [postData, setPostData] = useState({image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png"});
 
     const dispatch = useDispatch();
 
@@ -77,16 +99,6 @@ const CitizenFormPresent = () => {
         dispatch(allPoliceStations());
         dispatch(allPostOffices());
     },[dispatch]);
-
-    useEffect(() => {
-
-        if(po.length > 0){
-            const postOffice = postOffices.find(pOff => pOff.name.toLowerCase() === po.toLowerCase());
-            // console.log('test', postOffice)
-            setPostCode(postOffice.post_code);
-            console.log('in useEffect');
-        }
-    }, [po]);
 
     const districts = useSelector((state) => state.districts).filter(dist => dist.division.trim().toLowerCase() === division.toLowerCase()).map(d=>d.name);
 
@@ -136,68 +148,68 @@ const CitizenFormPresent = () => {
                     <Grid item container md={10} rowSpacing={3}>
                         <Grid item container justify="space-between" spacing={3}>
                             <Grid item md={6}>
-                                <TextInputField lblTxt="Full Name" lblTxtBng="সম্পূর্ন নাম" fieldValue={postCode} handleAction={updatePostCode}/>
+                                <TextInputField lblTxt="Full Name" lblTxtBng="সম্পূর্ন নাম" fieldValue={fullName} handleAction={updateFullName}/>
                             </Grid>
 
                             <Grid item container md={6} justify="space-between" spacing={3}>
                                 <Grid item md={4}>
-                                    <SelectInputField txtLbl="Birth Day" txtLblBng="জন্ম দিন" dataList={["1", "2"]}
-                                                      handleAction={updatePs} fieldValue={ps}/>
+                                    <SelectInputField txtLbl="Birth Day" txtLblBng="জন্ম দিন" dataList={DAYS}
+                                                      handleAction={updateBDay} fieldValue={bDay}/>
                                 </Grid>
                                 <Grid item md={4}>
-                                    <SelectInputField txtLbl="Birth Month" txtLblBng="মাস" dataList={["Jan", "Feb"]}
-                                                      handleAction={updatePs} fieldValue={ps}/>
+                                    <SelectInputField txtLbl="Birth Month" txtLblBng="মাস" dataList={MONTHS}
+                                                      handleAction={updateBMonth} fieldValue={bMonth}/>
                                 </Grid>
                                 <Grid item md={4}>
-                                    <SelectInputField txtLbl="Birth Year" txtLblBng="বছর" dataList={["2001", "2000"]} handleAction={updatePs} fieldValue={ps}/>
+                                    <SelectInputField txtLbl="Birth Year" txtLblBng="বছর" dataList={YEARS} handleAction={updateBYear} fieldValue={bYear}/>
                                 </Grid>
                             </Grid>
                         </Grid>
                         <Grid item container justify="space-between" spacing={3}>
                             <Grid item md={3}>
-                                <TextInputField lblTxt="Father's Name" lblTxtBng="পিতার নাম" fieldValue={postCode} handleAction={updatePostCode}/>
+                                <TextInputField lblTxt="Father's Name" lblTxtBng="পিতার নাম" fieldValue={fatherName} handleAction={updateFatherName}/>
                             </Grid>
                             <Grid item md={3}>
-                                <TextInputField lblTxt="Mother's Name" lblTxtBng="মাতার নাম" fieldValue={postCode}
-                                                handleAction={updatePostCode}/>
+                                <TextInputField lblTxt="Mother's Name" lblTxtBng="মাতার নাম" fieldValue={motherName}
+                                                handleAction={updateMotherName}/>
                             </Grid>
                             <Grid item md={3}>
-                                <TextInputField lblTxt="National ID" lblTxtBng="জাতীয় পরিচয় নং" fieldValue={postCode} handleAction={updatePostCode}/>
+                                <TextInputField lblTxt="National ID" lblTxtBng="জাতীয় পরিচয় নং" fieldValue={nid} handleAction={updateNid}/>
                             </Grid>
                             <Grid item md={3}>
-                                <SelectInputField txtLbl="Religion" txtLblBng="ধর্ম" dataList={["Muslim", "Hindu", "Christian", "Buddist", "Jew", "Other"]} handleAction={updatePs} fieldValue={ps}/>
-                            </Grid>
-                        </Grid>
-                        <Grid item container justify="space-between" spacing={3}>
-                            <Grid item md={3}>
-                                <SelectInputField txtLbl="Gender" txtLblBng="লিঙ্গ" dataList={["Male", "Female", "Other"]} handleAction={updatePs} fieldValue={ps}/>
-                            </Grid>
-                            <Grid item md={3}>
-                                <SelectInputField txtLbl="Marital Status" txtLblBng="বৈবাহিক অবস্থা" dataList={["Never Married", "Married", "Divorced", "Widowed"]} handleAction={updatePs} fieldValue={ps}/>
-                            </Grid>
-                            <Grid item md={3}>
-                                <TextInputField lblTxt="Passport No [if any]" lblTxtBng="পাসপোর্ট নং [যদি থাকে]" fieldValue={postCode} handleAction={updatePostCode}/>
-                            </Grid>
-                            <Grid item md={3}>
-                                <TextInputField lblTxt="Driving License No [if any]" lblTxtBng="ড্রাইভিং লাইসেন্স নং [যদি থাকে]" fieldValue={postCode} handleAction={updatePostCode}/>
+                                <SelectInputField txtLbl="Religion" txtLblBng="ধর্ম" dataList={RELIGIONS} handleAction={updateReligion} fieldValue={religion}/>
                             </Grid>
                         </Grid>
                         <Grid item container justify="space-between" spacing={3}>
                             <Grid item md={3}>
-                                <TextInputField lblTxt="Email" lblTxtBng="ইমেইল" fieldValue={postCode}
-                                                handleAction={updatePostCode} inputType="email"/>
+                                <SelectInputField txtLbl="Gender" txtLblBng="লিঙ্গ" dataList={GENDERS} handleAction={updateGender} fieldValue={gender}/>
                             </Grid>
                             <Grid item md={3}>
-                                <TextInputField lblTxt="Confirm Email" lblTxtBng="নিশ্চিতকরন ইমেইল" fieldValue={postCode}
-                                                handleAction={updatePostCode} inputType="email"/>
+                                <SelectInputField txtLbl="Marital Status" txtLblBng="বৈবাহিক অবস্থা" dataList={MARITAL_STATUS} handleAction={updateMStatus} fieldValue={mStatus}/>
                             </Grid>
                             <Grid item md={3}>
-                                <TextInputField lblTxt="Phone" lblTxtBng="ফোন নং" fieldValue={postCode}
-                                                handleAction={updatePostCode}/>
+                                <TextInputField lblTxt="Passport No [if any]" lblTxtBng="পাসপোর্ট নং [যদি থাকে]" fieldValue={passport} handleAction={updatePassport}/>
                             </Grid>
                             <Grid item md={3}>
-                                <TextInputField lblTxt="Alternate Phone" lblTxtBng="অন্য ফোন নং" fieldValue={postCode}
-                                                handleAction={updatePostCode}/>
+                                <TextInputField lblTxt="Driving License No [if any]" lblTxtBng="ড্রাইভিং লাইসেন্স নং [যদি থাকে]" fieldValue={drivingLnc} handleAction={updateDrivingLnc}/>
+                            </Grid>
+                        </Grid>
+                        <Grid item container justify="space-between" spacing={3}>
+                            <Grid item md={3}>
+                                <TextInputField lblTxt="Email" lblTxtBng="ইমেইল" fieldValue={email}
+                                                handleAction={updateEmail} inputType="email"/>
+                            </Grid>
+                            <Grid item md={3}>
+                                <TextInputField lblTxt="Confirm Email" lblTxtBng="নিশ্চিতকরন ইমেইল" fieldValue={confEmail}
+                                                handleAction={updateConfEmail} inputType="email"/>
+                            </Grid>
+                            <Grid item md={3}>
+                                <TextInputField lblTxt="Phone" lblTxtBng="ফোন নং" fieldValue={phone}
+                                                handleAction={updatePhone}/>
+                            </Grid>
+                            <Grid item md={3}>
+                                <TextInputField lblTxt="Alternate Phone" lblTxtBng="অন্য ফোন নং" fieldValue={altPhone}
+                                                handleAction={updateAltPhone}/>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -218,7 +230,7 @@ const CitizenFormPresent = () => {
                     <>
                         <Grid item container justify="space-between" spacing={3}>
                             <Grid item md={3}>
-                                <SelectInputField txtLbl="Division" txtLblBng="বিভাগ" dataList={divisions} handleAction={updateDiv}  fieldValue={division} />
+                                <SelectInputField txtLbl="Division" txtLblBng="বিভাগ" dataList={DIVISIONS} handleAction={updateDiv}  fieldValue={division} />
                             </Grid>
                             <Grid item md={3}>
                                 <SelectInputField txtLbl="District" txtLblBng="জেলা" dataList={districts} handleAction={updateDist}  fieldValue={district} />
@@ -248,26 +260,26 @@ const CitizenFormPresent = () => {
 
                         <Grid item container justify="space-between" spacing={3}>
                             <Grid item md={3}>
-                                <TextInputField lblTxt="Section/Sector" lblTxtBng="সেকশন/সেক্টর" fieldValue={postCode} handleAction={updatePostCode} />
+                                <TextInputField lblTxt="Section/Sector" lblTxtBng="সেকশন/সেক্টর" fieldValue={sect} handleAction={updateSect} />
                             </Grid>
                             <Grid item md={3}>
-                                <TextInputField lblTxt="Block" lblTxtBng="ব্লক" fieldValue={postCode} handleAction={updatePostCode} />
+                                <TextInputField lblTxt="Block" lblTxtBng="ব্লক" fieldValue={block} handleAction={updateBlock} />
                             </Grid>
                             <Grid item md={3}>
-                                <TextInputField lblTxt="Road" lblTxtBng="রাস্তা" fieldValue={postCode} handleAction={updatePostCode} />
+                                <TextInputField lblTxt="Road" lblTxtBng="রাস্তা" fieldValue={road} handleAction={updateRoad} />
                             </Grid>
                             <Grid item container md={3} justify="space-between" spacing={3}>
                                 <Grid item md={6}>
-                                    <TextInputField lblTxt="House" lblTxtBng="বাড়ি" fieldValue={postCode} handleAction={updatePostCode} />
+                                    <TextInputField lblTxt="House" lblTxtBng="বাড়ি" fieldValue={house} handleAction={updateHouse} />
                                 </Grid>
                                 <Grid item md={6}>
-                                    <TextInputField lblTxt="Flat/Apartment" lblTxtBng="ফ্ল্যাট/এপার্টমেন্ট" fieldValue={postCode} handleAction={updatePostCode} />
+                                    <TextInputField lblTxt="Flat/Apartment" lblTxtBng="ফ্ল্যাট/এপার্টমেন্ট" fieldValue={flat} handleAction={updateFlat} />
                                 </Grid>
                             </Grid>
                         </Grid>
                     </> :
                     <Grid item container>
-                        <TextInputField lblTxt="Full Address" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={postCode} multipleLine={3} handleAction={updatePostCode} />
+                        <TextInputField lblTxt="Full Address" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={fullAddress} multipleLine={3} handleAction={updateFullAddress} />
                     </Grid>
                 }
 
@@ -283,30 +295,30 @@ const CitizenFormPresent = () => {
                 <Grid item container rowSpacing={3}>
                     <Grid item container justify="space-between" spacing={3}>
                         <Grid item md={3}>
-                            <SelectInputField txtLbl="Starting Month" txtLblBng="ভাড়া শুরুর মাস" dataList={["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]} fieldValue={month} handleAction={updateMonth} />
+                            <SelectInputField txtLbl="Starting Month" txtLblBng="ভাড়া শুরুর মাস" dataList={MONTHS} fieldValue={month} handleAction={updateMonth} />
                         </Grid>
                         <Grid item md={3}>
-                            <SelectInputField txtLbl="Starting Year" txtLblBng="ভাড়া শুরুর বছর" dataList={["2001", "2000"]} fieldValue={year} handleAction={updateYear} />
+                            <SelectInputField txtLbl="Starting Year" txtLblBng="ভাড়া শুরুর বছর" dataList={YEARS} fieldValue={year} handleAction={updateYear} />
                         </Grid>
 
                         <Grid item md={6}>
-                            <TextInputField lblTxt="Nearest Landmark" lblTxtBng="নিকটস্থ পরিচিত স্থান" fieldValue={postCode} handleAction={updatePostCode} />
+                            <TextInputField lblTxt="Nearest Landmark" lblTxtBng="নিকটস্থ পরিচিত স্থান" fieldValue={landmark} handleAction={updateLandmark} />
                         </Grid>
                     </Grid>
                 </Grid>
 
                 <Grid item container justify="space-between" spacing={3}>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Land Owner" lblTxtBng="সম্পত্তির অধিকারী" fieldValue={postCode} handleAction={updatePostCode} />
+                        <TextInputField lblTxt="Land Owner" lblTxtBng="সম্পত্তির অধিকারী" fieldValue={landlord} handleAction={updateLandlord} />
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Father's Name" lblTxtBng="সম্পত্তির অধিকারীর পিতার নাম" fieldValue={postCode} handleAction={updatePostCode} />
+                        <TextInputField lblTxt="Father's Name" lblTxtBng="সম্পত্তির অধিকারীর পিতার নাম" fieldValue={llFather} handleAction={updatellFather} />
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="NID No" lblTxtBng="এনআইডি নং" fieldValue={postCode} handleAction={updatePostCode} />
+                        <TextInputField lblTxt="NID No" lblTxtBng="এনআইডি নং" fieldValue={llNid} handleAction={updatellNid} />
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Phone" lblTxtBng="ফোন" fieldValue={postCode} handleAction={updatePostCode} />
+                        <TextInputField lblTxt="Phone" lblTxtBng="ফোন" fieldValue={llPhone} handleAction={updatellPhone} />
                     </Grid>
                 </Grid>
 
@@ -325,20 +337,20 @@ const CitizenFormPresent = () => {
                 </Grid>
                 <Grid item container justify="space-between" spacing={3}>
                     <Grid item md={6}>
-                        <TextInputField lblTxt="Land Owner" lblTxtBng="সম্পত্তির অধিকারী" fieldValue={postCode} handleAction={updatePostCode} />
+                        <TextInputField lblTxt="Land Owner" lblTxtBng="সম্পত্তির অধিকারী" fieldValue={preLandlord} handleAction={updatePreLandlord} />
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="NID No" lblTxtBng="এনআইডি নং" fieldValue={postCode} handleAction={updatePostCode} />
+                        <TextInputField lblTxt="NID No" lblTxtBng="এনআইডি নং" fieldValue={prellNid} handleAction={updatePrellNid} />
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Phone" lblTxtBng="ফোন" fieldValue={postCode} handleAction={updatePostCode} />
+                        <TextInputField lblTxt="Phone" lblTxtBng="ফোন" fieldValue={prellPhone} handleAction={updatePrellPhone} />
                     </Grid>
                 </Grid>
                 <Grid item container>
-                    <TextInputField lblTxt="Full Address" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={postCode} handleAction={updatePostCode} />
+                    <TextInputField lblTxt="Full Address" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={preFullAddress} handleAction={updatePreFullAddress} />
                 </Grid>
                 <Grid item container>
-                    <TextInputField lblTxt="Reason for leaving" lblTxtBng="পরিবর্তনের কারন" fieldValue={postCode} handleAction={updatePostCode} />
+                    <TextInputField lblTxt="Reason for leaving" lblTxtBng="পরিবর্তনের কারন" fieldValue={preChangeReason} handleAction={updatePreChangeReason} />
                 </Grid>
                 <Grid item container sx={{justifyContent: "center"}}>
                     <Button variant="contained" color="success" onClick={savePreviousRentals}>Save | &nbsp;<span className="banglaText">ঠিক আছে</span></Button>

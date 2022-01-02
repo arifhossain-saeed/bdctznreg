@@ -7,14 +7,10 @@ const useInputState = (initVal) => {
             setValue(e.target.value);
     }
 
-    const setPreferredValue = (param) => {
-        setValue(param)
-    }
-
     const resetVal = () => {
         setValue("");
     }
-    return [value, handleValChange, setPreferredValue, resetVal];
+    return [value, handleValChange, resetVal];
 }
 
 export default useInputState;

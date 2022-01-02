@@ -113,7 +113,7 @@ function Home() {
             setModalState(true);
             dispatch(loginAttempt({nid: cNid, phone: cPhone}));
         }else{
-            alert("One or More fields are missing value");
+            alert("One or More fields are missing value.\nPlease enter '987654321' as NID and '01719321654' as PHONE and '123456' as OTP. The application is STILL UNDER DEVELOPMENT");
         }
     }
     const loggedInState = useSelector((state) => state.loginState);
