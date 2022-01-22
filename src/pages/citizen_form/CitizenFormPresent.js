@@ -52,6 +52,7 @@ const CitizenFormPresent = () => {
     const [area, updateArea, resetArea] = useInputState("");
     const [postCode, updatePostCode, resetPostCode] = useInputState("");
     const [isPermanent, updateIsPermanent] = useToggleState(false);
+    const [isOwner, updateIsOwner] = useToggleState(false);
     const [month, updateMonth] = useInputState("");
     const [year, updateYear] = useInputState("");
     const [oneLineAddress, setOneLineAddress] = useToggleState(false);
@@ -288,7 +289,7 @@ const CitizenFormPresent = () => {
                         <CheckInputField inputChecked={isPermanent} handleAction={updateIsPermanent} lblTxt="Permanent Address" lblTxtBng="স্থায়ী ঠিকানা" />
                     </Grid>
                     <Grid item sm={6}>
-                        <CheckInputField inputChecked={isPermanent} handleAction={updateIsPermanent} lblTxt="Owner" lblTxtBng="স্বত্তাধীকারী" />
+                        <CheckInputField inputChecked={isOwner} handleAction={updateIsOwner} lblTxt="Owner" lblTxtBng="স্বত্তাধীকারী" />
                     </Grid>
                 </Grid>
 
@@ -359,7 +360,9 @@ const CitizenFormPresent = () => {
                 <Grid item container sx={{margin: "30px 0"}}>
                     <Box sx={{border: "1px solid black", width: "100%"}}></Box>
                 </Grid>
+            </Grid>
 
+            <Grid item container rowSpacing={3}>
                 <Grid item container justify="space-between" spacing={6}>
                     <Grid item md={4} sx={{justifyContent: "left"}}>
                         <Button variant="contained" color="error" onClick={cancelRecordCreation} fullWidth>Cancel | &nbsp;<span className="banglaText">এখন নয়</span></Button>

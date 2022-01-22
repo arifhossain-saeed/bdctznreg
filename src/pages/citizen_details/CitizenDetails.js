@@ -31,6 +31,8 @@ const CitizenDetail = () => {
     const citizen = useSelector((state) => state.citizen);
     const loggedInState = useSelector((state) => state.loginState);
 
+    console.log(citizen);
+
     const basicInfo = [
         {label: "Name", labelBng: "নাম", data: "Syed Arif Hossain"},
         {label: "National ID No", labelBng: "জাতীয় পরিচয় নং", data: "26962347234"},
@@ -134,6 +136,7 @@ const CitizenDetail = () => {
         {name: "Saeed", age: 33, occupation: "Programmer", phone: "01877354232"},
         {name: "Shahin", age: 35, occupation: "Housewife", phone: "01911097666"}
     ];
+
     const helpingHands = [
         {name: "Saeed", occupation: "Cook", address: "7A, 37 Middle Paikpara", phone: "01877354232"},
         {name: "Shahin", occupation: "Care taker", address: "7C, 37 Middle Paikpara", phone: "01911097666"}

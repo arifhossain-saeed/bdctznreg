@@ -18,6 +18,7 @@ import AddressPresenter from "../../components/page_parts/AddressPresenter";
 import TextInputField from "../../components/form_parts/TextInputField";
 import useInputState from "../../hooks/useInputState";
 import SelectInputField from "../../components/form_parts/SelectInputField";
+import {DAYS, MONTHS, YEARS} from "../../utils/consts";
 
 const useStyles = makeStyles({
 })
@@ -29,6 +30,20 @@ const UserCreateUpdate = () => {
     });
 
     const [userName, updateUserName] = useInputState("");
+    const [badgeNo, updateBadgeNo] = useInputState("");
+    const [designation, updateDesignation] = useInputState("");
+    const [station, updateStation] = useInputState("");
+    const [joiningDay, updateJoiningDay] = useInputState("");
+    const [joiningMonth, updateJoiningMonth] = useInputState("");
+    const [joiningYear, updateJoiningYear] = useInputState("");
+    const [status, updateStatus] = useInputState("");
+    const [phone, updatePhone] = useInputState("");
+    const [email, updateEmail] = useInputState("");
+    const [supervisor, updateSupervisor] = useInputState("");
+    const [supervisorDesignation, updateSupervisorDesignation] = useInputState("");
+    const [stationInCharge, updateStationInCharge] = useInputState("");
+    const [inChargeDesignation, updateInChargeDesignation] = useInputState("");
+
 
     const cancelOperation = () => {};
     const clearFields = () => {};
@@ -47,53 +62,53 @@ const UserCreateUpdate = () => {
                                     <TextInputField lblTxt="Name" lblTxtBng="নাম" fieldValue={userName} handleAction={updateUserName} />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Badge / ID" lblTxtBng="ব্যাজ / আইডি নং" fieldValue={userName} handleAction={updateUserName} />
+                                    <TextInputField lblTxt="Badge / ID" lblTxtBng="ব্যাজ / আইডি নং" fieldValue={badgeNo} handleAction={updateBadgeNo} />
                                 </Grid>
                             </Grid>
                             <Grid item container spacing={2} justify="space-between">
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Designation" lblTxtBng="পদবী" fieldValue={userName} handleAction={updateUserName} />
+                                    <TextInputField lblTxt="Designation" lblTxtBng="পদবী" fieldValue={designation} handleAction={updateDesignation} />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Station / Office" lblTxtBng="স্টেশন / অফিস" fieldValue={userName} handleAction={updateUserName} />
+                                    <TextInputField lblTxt="Station / Office" lblTxtBng="স্টেশন / অফিস" fieldValue={station} handleAction={updateStation} />
                                 </Grid>
                             </Grid>
                             <Grid item container spacing={2} justify="space-between">
                                 <Grid item xs={12} sm={3} md={3}>
-                                    <SelectInputField txtLbl="Joined Day" txtLblBng="জয়েনিং এর দিন" dataList={["1", "2", "3"]} fieldValue={userName} handleAction={updateUserName} />
+                                    <SelectInputField txtLbl="Joined Day" txtLblBng="জয়েনিং এর দিন" dataList={DAYS} fieldValue={joiningDay} handleAction={updateJoiningDay} />
                                 </Grid>
                                 <Grid item xs={12} sm={3} md={3}>
-                                    <SelectInputField txtLbl="Month" txtLblBng="মাস" dataList={["Jan", "Feb", "Mar"]} fieldValue={userName} handleAction={updateUserName} />
+                                    <SelectInputField txtLbl="Month" txtLblBng="মাস" dataList={MONTHS} fieldValue={joiningMonth} handleAction={updateJoiningMonth} />
                                 </Grid>
                                 <Grid item xs={12} sm={3} md={3}>
-                                    <SelectInputField txtLbl="Year" txtLblBng="বছর" dataList={["1991", "1990"]} fieldValue={userName} handleAction={updateUserName} />
+                                    <SelectInputField txtLbl="Year" txtLblBng="বছর" dataList={YEARS} fieldValue={joiningYear} handleAction={updateJoiningYear} />
                                 </Grid>
                                 <Grid item xs={12} sm={3} md={3}>
-                                    <SelectInputField txtLbl="Status" txtLblBng="বর্তমান অবস্থা" dataList={["Active", "Inactive"]} fieldValue={userName} handleAction={updateUserName} />
+                                    <SelectInputField txtLbl="Status" txtLblBng="বর্তমান অবস্থা" dataList={["Active", "Inactive"]} fieldValue={status} handleAction={updateStatus} />
                                 </Grid>
                             </Grid>
                             <Grid item container spacing={2} justify="space-between">
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Phone" lblTxtBng="ফোন নং" fieldValue={userName} handleAction={updateUserName} />
+                                    <TextInputField lblTxt="Phone" lblTxtBng="ফোন নং" fieldValue={phone} handleAction={updatePhone} />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Email" lblTxtBng="ইমেইল" fieldValue={userName} handleAction={updateUserName} />
-                                </Grid>
-                            </Grid>
-                            <Grid item container spacing={2} justify="space-between">
-                                <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Supervisor" lblTxtBng="সুপারভাইজর" fieldValue={userName} handleAction={updateUserName} />
-                                </Grid>
-                                <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Supervisor Designation" lblTxtBng="সুপারভাইজরের পদবী" fieldValue={userName} handleAction={updateUserName} />
+                                    <TextInputField lblTxt="Email" lblTxtBng="ইমেইল" fieldValue={email} handleAction={updateEmail} />
                                 </Grid>
                             </Grid>
                             <Grid item container spacing={2} justify="space-between">
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="Station In-charge" lblTxtBng="স্টেশন / অফিস ইন-চার্জ" fieldValue={userName} handleAction={updateUserName} />
+                                    <TextInputField lblTxt="Supervisor" lblTxtBng="সুপারভাইজর" fieldValue={supervisor} handleAction={updateSupervisor} />
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={6}>
-                                    <TextInputField lblTxt="In-charge Designation" lblTxtBng="ইন-চার্জের পদবী" fieldValue={userName} handleAction={updateUserName} />
+                                    <TextInputField lblTxt="Supervisor Designation" lblTxtBng="সুপারভাইজরের পদবী" fieldValue={supervisorDesignation} handleAction={updateSupervisorDesignation} />
+                                </Grid>
+                            </Grid>
+                            <Grid item container spacing={2} justify="space-between">
+                                <Grid item xs={12} sm={6} md={6}>
+                                    <TextInputField lblTxt="Station In-charge" lblTxtBng="স্টেশন / অফিস ইন-চার্জ" fieldValue={stationInCharge} handleAction={updateStationInCharge} />
+                                </Grid>
+                                <Grid item xs={12} sm={6} md={6}>
+                                    <TextInputField lblTxt="In-charge Designation" lblTxtBng="ইন-চার্জের পদবী" fieldValue={inChargeDesignation} handleAction={updateInChargeDesignation} />
                                 </Grid>
                             </Grid>
                         </Grid>

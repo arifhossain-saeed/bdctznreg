@@ -4,7 +4,7 @@ import SectionTitle from "../../components/page_parts/SectionTitle";
 import Box from "@mui/material/Box";
 import TextInputField from "../../components/form_parts/TextInputField";
 import Button from "@mui/material/Button";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Typography from "@mui/material/Typography";
 import useInputState from "../../hooks/useInputState";
 import TableAlternateColorAct from "../../components/page_parts/TableAlternateColorAct";
@@ -12,6 +12,12 @@ import {useNavigate} from "react-router-dom";
 import SelectInputField from "../../components/form_parts/SelectInputField";
 import useToggleState from "../../hooks/useToggleState";
 import Grid from "@mui/material/Grid";
+import {DIVISIONS} from "../../utils/consts";
+import {useDispatch, useSelector} from "react-redux";
+import {allDistricts} from "../../store/actions/district";
+import {allSubDistricts} from "../../store/actions/sub_district";
+import {allPoliceStations} from "../../store/actions/police_stations";
+import {allPostOffices} from "../../store/actions/post_offices";
 
 
 const helpingHands =  [
@@ -45,10 +51,29 @@ const CitizenRecordsAdmin = () => {
     const [district, updateDist, resetDist] = useInputState("");
     const [subDist, updateSubDist, resetSubDist] = useInputState("");
     const [ps, updatePs, resetPs] = useInputState("");
-    const [po, updatePo, resetPo] = useInputState("");
-    const [city, updateCity, resetCity] = useInputState("");
-    const [area, updateArea, resetArea] = useInputState("");
-    const [postCode, updatePostCode, resetPostCode] = useInputState("");
+    const [sect, updateSect] = useInputState("");
+    const [block, updateBlock] = useInputState("");
+    const [house, updateHouse] = useInputState("");
+    const [flatApt, updateFlatApt] = useInputState("");
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(allDistricts());
+        dispatch(allSubDistricts());
+        dispatch(allPoliceStations());
+        dispatch(allPostOffices());
+    },[dispatch]);
+
+    const districts = useSelector((state) => state.districts).filter(dist => dist.division.trim().toLowerCase() === division.toLowerCase()).map(d=>d.name);
+
+    const subDistricts = useSelector((state) => state.subDistricts).filter(sd => sd.district.trim().toLowerCase() === district.toLowerCase()).map(sd=>sd.name);
+
+    const policeStations = useSelector((state) => state.policeStations).filter(ps => ps.district.trim().toLowerCase() === district.toLowerCase()).map(ps=>ps.name);
+
+    const postOffices = useSelector((state) => state.postOffices).filter(po => po.police_station.trim().toLowerCase() === ps.toLowerCase());
+
+    const pOffs = postOffices.map(po => po.name);
 
     const filterData = () => {
 
@@ -84,32 +109,32 @@ const CitizenRecordsAdmin = () => {
 
                 <Grid item container rowSpacing={2} spacing={3} justify="space-between">
                     <Grid item md={3}>
-                        <SelectInputField txtLbl="Division" txtLblBng="বিভাগ" dataList={names} handleAction={updateDiv}  fieldValue={division} />
+                        <SelectInputField txtLbl="Division" txtLblBng="বিভাগ" dataList={DIVISIONS} handleAction={updateDiv}  fieldValue={division} />
                     </Grid>
                     <Grid item md={3}>
-                        <SelectInputField txtLbl="District" txtLblBng="জেলা" dataList={names} handleAction={updateDist}  fieldValue={district} />
+                        <SelectInputField txtLbl="District" txtLblBng="জেলা" dataList={districts} handleAction={updateDist}  fieldValue={district} />
                     </Grid>
                     <Grid item md={3}>
-                        <SelectInputField txtLbl="Sub-District" txtLblBng="উপজেলা" dataList={names} handleAction={updateSubDist}  fieldValue={subDist} />
+                        <SelectInputField txtLbl="Sub-District" txtLblBng="উপজেলা" dataList={subDistricts} handleAction={updateSubDist}  fieldValue={subDist} />
                     </Grid>
                     <Grid item md={3}>
-                        <SelectInputField txtLbl="Police Station" txtLblBng="থানা" dataList={names} handleAction={updatePs}  fieldValue={ps} />
+                        <SelectInputField txtLbl="Police Station" txtLblBng="থানা" dataList={policeStations} handleAction={updatePs}  fieldValue={ps} />
                     </Grid>
                 </Grid>
 
                 <Grid item container spacing={3} justify="space-between">
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Area" lblTxtBng="সেকশন/সেক্টর" fieldValue={postCode} handleAction={updatePostCode} />
+                        <TextInputField lblTxt="Area" lblTxtBng="সেকশন/সেক্টর" fieldValue={sect} handleAction={updateSect} />
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Keyword" lblTxtBng="ব্লক" fieldValue={postCode} handleAction={updatePostCode} />
+                        <TextInputField lblTxt="Keyword" lblTxtBng="ব্লক" fieldValue={block} handleAction={updateBlock} />
                     </Grid>
                     <Grid item container md={3} justify="space-between">
                         <Grid sx={{width: "45%"}}>
-                            <TextInputField lblTxt="Age From" lblTxtBng="বাড়ি" fieldValue={postCode} handleAction={updatePostCode} inputType="number" />
+                            <TextInputField lblTxt="Age From" lblTxtBng="বাড়ি" fieldValue={house} handleAction={updateHouse} inputType="number" />
                         </Grid>
                         <Grid sx={{width: "45%"}}>
-                            <TextInputField lblTxt="Age To" lblTxtBng="ফ্ল্যাট/এপার্টমেন্ট" fieldValue={postCode} handleAction={updatePostCode} inputType="number" />
+                            <TextInputField lblTxt="Age To" lblTxtBng="ফ্ল্যাট/এপার্টমেন্ট" fieldValue={flatApt} handleAction={updateFlatApt} inputType="number" />
                         </Grid>
                     </Grid>
                     <Grid item md={3}>

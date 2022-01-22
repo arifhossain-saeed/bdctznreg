@@ -2,6 +2,7 @@
 export const GET_CITIZEN = "GET_CITIZEN";
 export const CREATE_CITIZEN = "CREATE_CITIZEN";
 export const CLEAR_CITIZEN = "CLEAR_CITIZEN";
+export const UPDATE_CITIZEN = "UPDATE_CITIZEN";
 
 // Login Action Types
 export const LOGIN = "LOGIN";

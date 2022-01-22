@@ -29,3 +29,9 @@ export const RELIGIONS = ["Islam", "Hinduism", "Christianity", "Buddhism", "Jewi
 export const GENDERS = ["Male", "Female", "Other"];
 
 export const MARITAL_STATUS = ["Never Married", "Married", "Divorced", "Widowed"];
+
+export const RELATIONS = ["Parent", "Sibling", "Spouse", "Child", "Relative", "Friend"];
+
+export const OCCUPATIONS = ["Administrative Official (Private)", "Bank Official", "Business", "Engineering", "Farming", "Govt Official", "Health Care", "IT Work", "Local Govt. Official", "RMG Official", "Other"];
+
+export const EDUCATIONAL_LEVEL = ["Alphabetical", "Primary School", "High School", "Bachelors", "Masters", "Doctorate"];

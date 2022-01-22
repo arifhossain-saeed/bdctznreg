@@ -11,19 +11,9 @@ import useInputState from "../../hooks/useInputState";
 import useToggleState from "../../hooks/useToggleState";
 import {useNavigate} from "react-router-dom";
 import Grid from "@mui/material/Grid";
+import {EDUCATIONAL_LEVEL, GENDERS, MARITAL_STATUS, RELIGIONS} from "../../utils/consts";
+import {useSelector} from "react-redux";
 
-const names = [
-    'Oliver Hansen',
-    'Van Henry',
-    'April Tucker',
-    'Ralph Hubbard',
-    'Omar Alexander',
-    'Carlos Abbott',
-    'Miriam Wagner',
-    'Bradley Wilkerson',
-    'Virginia Andrews',
-    'Kelly Snyder',
-];
 
 const helpingHands =  [
     {name:"Saeed", occupation:"Cook", address: "7A, 37 Middle Paikpara", phone:"01877354232"},
@@ -31,26 +21,29 @@ const helpingHands =  [
 ];
 
 const CitizenFormHelps = () => {
-    const [division, updateDiv, resetDiv] = useInputState("");
-    const [district, updateDist, resetDist] = useInputState("");
-    const [subDist, updateSubDist, resetSubDist] = useInputState("");
-    const [ps, updatePs, resetPs] = useInputState("");
-    const [po, updatePo, resetPo] = useInputState("");
-    const [city, updateCity, resetCity] = useInputState("");
-    const [area, updateArea, resetArea] = useInputState("");
-    const [postCode, updatePostCode, resetPostCode] = useInputState("");
+    const activeCitizen = useSelector((state) => state.citizen);
+    const [fullName, updateFullName] = useInputState("");
+    const [fatherName, updateFatherName] = useInputState("");
+    const [motherName, updateMotherName] = useInputState("");
+    const [birthDate, updateBirthDate] = useInputState("");
+    const [gender, updateGender] = useInputState("");
+    const [religion, updateReligion] = useInputState("");
+    const [nid, updateNid] = useInputState("");
+    const [education, updateEducation] = useInputState("");
+    const [mStatus, updateMStatus] = useInputState("");
+    const [phone, updatePhone] = useInputState("");
+    const [email, updateEmail] = useInputState("");
+    const [occupation, updateOccupation] = useInputState("");
+    const [altPhone, updateAltPhone] = useInputState("");
+    const [passport, updatePassport] = useInputState("");
+    const [drivingLnc, updateDrivingLnc] = useInputState("");
+    const [fullAddress, updateFullAddress] = useInputState("");
 
-    const [isPermanent, updateIsPermanent] = useToggleState(false);
 
-    const [month, updateMonth] = useInputState("");
-    const [year, updateYear] = useInputState("");
-
-    const savePresentAddress = () => {
+    const saveHelpInfo = () => {
 
     }
-    const savePreviousRentals = () => {
 
-    }
     const cancelRecordCreation = () => {
         navigate("/ctzn_detail");
     }
@@ -59,7 +52,7 @@ const CitizenFormHelps = () => {
         navigate("/ctzn_form_members")
     }
     const goToNextForm = () => {
-        navigate("/ctzn_form_photo")
+        navigate("/ctzn_detail")
     }
     return(
     <AppLayout pageTitle="Citizen Form Page [Helping Hands]"  pageTitleBangla="নাগরিক তথ্য সংগ্রহ [সহযোগীতাকারি]" pageContent="Citizen Information Collection Form">
@@ -71,66 +64,64 @@ const CitizenFormHelps = () => {
                 </Grid>
                 <Grid item container justify="space-between" spacing={3}>
                     <Grid item md={6}>
-                        <TextInputField lblTxt="Full Name" lblTxtBng="সম্পূর্ন নাম" fieldValue={postCode} handleAction={updatePostCode} />
+                        <TextInputField lblTxt="Full Name" lblTxtBng="সম্পূর্ন নাম" fieldValue={fullName} handleAction={updateFullName} />
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Father's Name" lblTxtBng="পিতার নাম" fieldValue={postCode} handleAction={updatePostCode} />
+                        <TextInputField lblTxt="Father's Name" lblTxtBng="পিতার নাম" fieldValue={fatherName} handleAction={updateFatherName} />
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Mother's Name" lblTxtBng="মাতার নাম" fieldValue={postCode} handleAction={updatePostCode} />
-                    </Grid>
-                </Grid>
-
-                <Grid item container justify="space-between" spacing={3}>
-
-                    <Grid item md={3}>
-                        <TextInputField lblTxt="Birth Date" lblTxtBng="জন্ম তারিখ" fieldValue={postCode} handleAction={updatePostCode} />
-                    </Grid>
-                    <Grid item md={3}>
-                        <TextInputField lblTxt="National ID" lblTxtBng="জাতীয় পরিচয় [যেকোন]" fieldValue={postCode} handleAction={updatePostCode} />
-                    </Grid>
-                    <Grid item md={3}>
-                        <SelectInputField txtLbl="Gender" txtLblBng="লিঙ্গ" dataList={["Male", "Female", "Other"]} handleAction={updatePs} fieldValue={ps}/>
-                    </Grid>
-                    <Grid item md={3}>
-                        <SelectInputField txtLbl="Religion" txtLblBng="ধর্ম" dataList={["Muslim", "Hindu", "Christian", "Buddist", "Jew", "Other"]} handleAction={updatePs}  fieldValue={ps} />
+                        <TextInputField lblTxt="Mother's Name" lblTxtBng="মাতার নাম" fieldValue={motherName} handleAction={updateMotherName} />
                     </Grid>
                 </Grid>
 
                 <Grid item container justify="space-between" spacing={3}>
+                    <Grid item md={3}>
+                        <TextInputField lblTxt="Birth Date" lblTxtBng="জন্ম তারিখ" fieldValue={birthDate} handleAction={updateBirthDate} />
+                    </Grid>
+                    <Grid item md={3}>
+                        <SelectInputField txtLbl="Gender" txtLblBng="লিঙ্গ" dataList={GENDERS} handleAction={updateGender} fieldValue={gender}/>
+                    </Grid>
+                    <Grid item md={3}>
+                        <SelectInputField txtLbl="Religion" txtLblBng="ধর্ম" dataList={RELIGIONS} handleAction={updateReligion}  fieldValue={religion} />
+                    </Grid>
+                    <Grid item md={3}>
+                        <TextInputField lblTxt="National ID" lblTxtBng="জাতীয় পরিচয় [যেকোন]" fieldValue={nid} handleAction={updateNid} />
+                    </Grid>
+                </Grid>
 
+                <Grid item container justify="space-between" spacing={3}>
                     <Grid item md={3}>
-                        <SelectInputField txtLbl="Marital Status" txtLblBng="বৈবাহিক অবস্থা" dataList={["Never Married", "Married", "Divorced", "Widowed"]} handleAction={updatePs} fieldValue={ps}/>
+                        <SelectInputField txtLbl="Education" txtLblBng="শিক্ষার স্তর" dataList={EDUCATIONAL_LEVEL} handleAction={updateEducation} fieldValue={education}/>
                     </Grid>
                     <Grid item md={3}>
-                        <SelectInputField txtLbl="Education" txtLblBng="শিক্ষার স্তর" dataList={["PhD", "Masters", "Bachelors", "High School", "Primary School", "Alphabetical"]} handleAction={updatePs} fieldValue={ps}/>
+                        <SelectInputField txtLbl="Marital Status" txtLblBng="বৈবাহিক অবস্থা" dataList={MARITAL_STATUS} handleAction={updateMStatus} fieldValue={mStatus}/>
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Phone" lblTxtBng="ফোন নং" fieldValue={postCode} handleAction={updatePostCode}/>
+                        <TextInputField lblTxt="Phone" lblTxtBng="নিজস্ব ফোন নং" fieldValue={phone} handleAction={updatePhone}/>
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Email" lblTxtBng="ইমেইল" fieldValue={postCode} handleAction={updatePostCode} inputType="email"/>
+                        <TextInputField lblTxt="Email" lblTxtBng="ইমেইল" fieldValue={email} handleAction={updateEmail} inputType="email"/>
                     </Grid>
                 </Grid>
                 <Grid item container justify="space-between" spacing={3}>
                     <Grid item md={3}>
-                        <SelectInputField txtLbl="Occupation" txtLblBng="পেশা" dataList={["Maid", "Driver", "Care Taker", "Gardner"]} handleAction={updatePs} fieldValue={ps}/>
+                        <SelectInputField txtLbl="Occupation" txtLblBng="পেশা" dataList={["Maid", "Driving", "Care Taking", "Gardnening", "Security"]} handleAction={updateOccupation} fieldValue={occupation}/>
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Phone" lblTxtBng="প্রতিষ্ঠানের/বাসার ফোন নং" fieldValue={postCode} handleAction={updatePostCode}/>
+                        <TextInputField lblTxt="Alternate Phone" lblTxtBng="যোগাযোগের ফোন নং" fieldValue={altPhone} handleAction={updateAltPhone}/>
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Passport No [if any]" lblTxtBng="পাসপোর্ট নং [যদি থাকে]" fieldValue={postCode} handleAction={updatePostCode}/>
+                        <TextInputField lblTxt="Passport No [if any]" lblTxtBng="পাসপোর্ট নং [যদি থাকে]" fieldValue={passport} handleAction={updatePassport}/>
                     </Grid>
                     <Grid item md={3}>
-                        <TextInputField lblTxt="Driving License No [if any]" lblTxtBng="ড্রাইভিং লাইসেন্স নং [যদি থাকে]" fieldValue={postCode} handleAction={updatePostCode}/>
+                        <TextInputField lblTxt="Driving License No [if any]" lblTxtBng="ড্রাইভিং লাইসেন্স নং [যদি থাকে]" fieldValue={drivingLnc} handleAction={updateDrivingLnc}/>
                     </Grid>
                 </Grid>
                 <Grid item container>
-                    <TextInputField lblTxt="Full Address" lblTxtBng="সম্পূর্ন ঠিকানা" fieldValue={postCode} handleAction={updatePostCode}/>
+                    <TextInputField lblTxt="Full Address" lblTxtBng="যোগাযোগের ঠিকানা" fieldValue={fullAddress} handleAction={updateFullAddress}/>
                 </Grid>
                 <Grid item container sx={{justifyContent: "center"}}>
-                    <Button variant="contained" color="success" onClick={savePreviousRentals}>Add | &nbsp;<span className="banglaText">ঠিক আছে</span></Button>
+                    <Button variant="contained" color="success" onClick={saveHelpInfo}>Add | &nbsp;<span className="banglaText">ঠিক আছে</span></Button>
                 </Grid>
             </Grid>
 
@@ -147,7 +138,7 @@ const CitizenFormHelps = () => {
                     <Button variant="contained" color="error" onClick={cancelRecordCreation} fullWidth>Cancel | &nbsp;<span className="banglaText">এখন নয়</span></Button>
                 </Grid>
                 <Grid item md={4}>
-                    <Button variant="contained" color="info" onClick={goToNextForm} fullWidth>Next | &nbsp;<span className="banglaText">পরবর্তী</span></Button>
+                    <Button variant="contained" color="info" onClick={goToNextForm} fullWidth>Finish | &nbsp;<span className="banglaText">শেষ</span></Button>
                 </Grid>
             </Grid>
         </Grid>

@@ -3,9 +3,9 @@ import {Routes, Route, Navigate} from 'react-router-dom';
 import Unavailable from "./pages/unavailable/Unavailable";
 import Home from "./pages/home/Home";
 import CitizenDetail from "./pages/citizen_details/CitizenDetails";
-import CitizenFormPresent from "./pages/citizen_form/CitizenFormPresent";
-import CitizenFormPermanent from "./pages/citizen_form/CitizenFormPermanent";
-import CitizenFormCredentials from "./pages/citizen_form/CitizenFormCredentials";
+import CitizenFormPresentAlt from "./pages/citizen_form/CitizenFormPresentAlt";
+import CitizenFormPermanentAlt from "./pages/citizen_form/CitizenFormPermanentAlt";
+import CitizenFormCredentialsAlt from "./pages/citizen_form/CitizenFormCredentialsAlt";
 import CitizenFormMembers from "./pages/citizen_form/CitizenFormMembers";
 import CitizenFormHelps from "./pages/citizen_form/CitizenFormHelps";
 import CitizenFormPhoto from "./pages/citizen_form/CitizenFormPhoto";
@@ -25,11 +25,11 @@ const AppRoutes = () => {
             {loggedInState ?
                 <Route path="/ctzn_detail" exact element={<CitizenDetail/>}/> :
                 <Route path="/ctzn_detail" element={<Navigate replace to="/"/>}/>}
-            {loggedInState ? <Route path="/ctzn_form_present" exact element={<CitizenFormPresent/>}/> :
+            {loggedInState ? <Route path="/ctzn_form_present" exact element={<CitizenFormPresentAlt />}/> :
                 <Route path="/ctzn_form_present" element={<Navigate replace to="/"/>}/>}
-            {loggedInState ? <Route path="/ctzn_form_permanent" exact element={<CitizenFormPermanent/>}/> :
+            {loggedInState ? <Route path="/ctzn_form_permanent" exact element={<CitizenFormPermanentAlt />}/> :
                 <Route path="/ctzn_form_permanent" element={<Navigate replace to="/"/>}/>}
-            {loggedInState ? <Route path="/ctzn_form_credentials" exact element={<CitizenFormCredentials/>}/> :
+            {loggedInState ? <Route path="/ctzn_form_credentials" exact element={<CitizenFormCredentialsAlt/>}/> :
                 <Route path="/ctzn_form_credentials" element={<Navigate replace to="/"/>}/>}
             {loggedInState ? <Route path="/ctzn_form_members" exact element={<CitizenFormMembers/>}/> :
                 <Route path="/ctzn_form_members" element={<Navigate replace to="/"/>}/>}

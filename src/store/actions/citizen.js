@@ -1,5 +1,5 @@
 import * as api from '../../http';
-import {CLEAR_CITIZEN, CREATE_CITIZEN, GET_CITIZEN} from "./actionTypes";
+import {CLEAR_CITIZEN, CREATE_CITIZEN, UPDATE_CITIZEN, GET_CITIZEN} from "./actionTypes";
 
 export const getCitizen = (citizenInfo) => async (dispatch) => {
     try{
@@ -14,6 +14,15 @@ export const createCitizen = (citizenInfo) => async(dispatch) =>{
     try {
         const {data} = await api.createCitizen(citizenInfo);
         dispatch({type: CREATE_CITIZEN, payload: data});
+    }catch (err) {
+        console.log(err.message);
+    }
+}
+
+export const updateCitizen = (citizenInfo) => async(dispatch) =>{
+    try {
+        const {data} = await api.updateCitizen(citizenInfo);
+        dispatch({type: UPDATE_CITIZEN, payload: data});
     }catch (err) {
         console.log(err.message);
     }
