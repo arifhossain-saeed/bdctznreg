@@ -35,7 +35,7 @@ const AppRoutes = () => {
                 <Route path="/ctzn_form_members" element={<Navigate replace to="/"/>}/>}
             {loggedInState ? <Route path="/ctzn_form_helps" exact element={<CitizenFormHelps/>}/> :
                 <Route path="/ctzn_form_helps" element={<Navigate replace to="/"/>}/>}
-            {loggedInState ? <Route path="/ctzn_records_owner" exact element={<CitizenRecords/>}/> :
+            {/*{loggedInState ? <Route path="/ctzn_records_owner" exact element={<CitizenRecords/>}/> :
                 <Route path="/ctzn_records_owner" element={<Navigate replace to="/"/>}/>}
             {loggedInState ? <Route path="/ctzn_records_admin" exact element={<CitizenRecordsAdmin/>}/> :
                 <Route path="/ctzn_records_admin" element={<Navigate replace to="/"/>}/>}
@@ -44,7 +44,13 @@ const AppRoutes = () => {
             {loggedInState ? <Route path="/user_list_admin" exact element={<UserList/>}/> :
                 <Route path="/user_list_admin" element={<Navigate replace to="/"/>}/>}
             {loggedInState ? <Route path="/user_detail_admin" exact element={<UserDetail/>}/> :
-                <Route path="/user_detail_admin" element={<Navigate replace to="/"/>}/>}
+                <Route path="/user_detail_admin" element={<Navigate replace to="/"/>}/>} */}
+            <Route path="/ctzn_records_owner" exact element={<CitizenRecords/>}/>
+            <Route path="/ctzn_records_admin" exact element={<CitizenRecordsAdmin/>}/>
+            <Route path="/user_create_update_admin" exact element={<UserCreateUpdate/>}/>
+            <Route path="/user_list_admin" exact element={<UserList/>}/>
+            <Route path="/user_detail_admin" exact element={<UserDetail/>}/>
+            
             <Route path="*" exact element={<Unavailable/>}/>
         </Routes>
     )
